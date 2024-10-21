@@ -1,0 +1,62 @@
+body {
+  background-color: grey;
+}
+
+div#imatges {
+  background-color: blueviolet;
+  padding: 5px;
+  margin: 5px;
+  height: 500px;
+  position: relative;
+}
+
+p#titol {
+  font-size: 3rem;
+  text-decoration: underline;
+  font-style: italic;
+  margin: 5px;
+  position: fixed;
+  display: none; /*Oculta el título*/
+
+  /* CSS BELOW */
+}
+
+h2 {
+  font-size: 40px;
+  color: white;
+  margin: 0px;
+  position: relative;
+  /*float: right; /*Hace que texto lote a la derecha del contenedor donde está*/
+  top: 150px; /*Lo desplaza 150px desde la parte superior de su contenedor*/
+  right: -445px; /*Lo depslaza -445px desde la parte derecha del contenedor*/
+  left: 500px;
+  z-index: 1; /* Hace que se superponga a otros elementos*/
+
+  /* CSS BELOW */
+}
+
+img#model {
+  position: absolute;
+  margin: 35px; /*Añade un margen de 35px alrededor de la imagen*/
+
+  /* CSS BELOW */
+}
+
+img#scissors {
+  position: absolute;
+  bottom: 25px; /*Lo desplaza 25px desde la parte inferior del contenedor*/
+  right: 20px; /*Lo desplaza 20px desde la parte derecha del contenedor*/
+
+  /* CSS BELOW */
+}
+
+.description {
+  font-size: 2em;
+  color: yellowgreen;
+  position: relative;
+  bottom: 60px; /*Lo desplaza 60px desde la parte inferior del contenedor*/
+  left: 10px; /*Lo desplaza 10px desde la parte izquierda del contenedor*/
+  max-width: 100%;
+
+  /* CSS BELOW */
+}

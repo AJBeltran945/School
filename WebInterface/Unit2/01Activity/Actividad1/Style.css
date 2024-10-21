@@ -1,0 +1,202 @@
+/*General*/
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+body {
+  width: 1000px;
+  height: 1500px;
+}
+
+/*Headers*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: purple;
+  color: white;
+  width: 1000px;
+  height: 120px;
+}
+
+header h1 {
+  font-size: 26px;
+}
+
+header p {
+  margin-left: 40px;
+}
+
+header img {
+  width: 200px;
+  height: 120px;
+  border: 2px;
+  border-color: black;
+}
+
+header div {
+  width: 500px;
+}
+
+/*Links part*/
+
+.links {
+  border-bottom: 2.6px dotted black;
+  border-top: 2.6px dotted black;
+  display: flex;
+  width: 1000px;
+  height: 46px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.links li {
+  padding: 10px 20px;
+  background-color: purple;
+  opacity: 0.5;
+  border-right: 2px solid white;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0;
+  font-size: 16.9px;
+  text-decoration: none;
+  height: 100%;
+}
+
+/*pattern part*/
+
+.pattern {
+  background-image: url("./Imatges/pattern.jpg");
+  width: 1000px;
+  height: auto;
+  padding-top: 95px;
+  margin: 0px;
+}
+
+.pattern img {
+  border-bottom: 2.6px dotted black;
+  border-top: 2.6px dotted black;
+  width: 1000px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/*table part*/
+
+.tableArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 1000px;
+  height: 250px;
+  background-color: lightgray;
+}
+
+.grades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid black;
+  width: 500px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.caption {
+  grid-column: span 3;
+  font-weight: bold;
+  font-size: larger;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.thead {
+  display: contents;
+  border-bottom: 2px black;
+}
+
+.th {
+  background-color: purple;
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  border-bottom: 3px solid black;
+  padding: 2px;
+}
+
+.tr {
+  display: contents;
+}
+
+.td {
+  font-size: small;
+  border-bottom: 1px solid black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.tr:nth-child(odd) .td {
+  background-color: grey;
+}
+
+.tr:nth-child(even) .td {
+  background-color: white;
+}
+
+/*Table image Part*/
+
+.tableImg {
+  width: 1000px;
+  height: 300px;
+  display: flex;
+}
+
+table {
+  width: 1000px;
+  border-collapse: collapse;
+  border-bottom: 2.6px dotted black;
+  border-top: 2.6px dotted black;
+}
+
+.img {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.txt {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+th img {
+  width: 246px;
+  height: 247px;
+  display: block;
+  opacity: 0.5;
+}
+
+/*footer*/
+
+footer {
+  background-color: purple;
+  color: white;
+  height: 100px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.BR {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="code.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Ejercicios en JavaScript</title>
+</head>
+    <body>
+        <h1>Ejercicios de Programación en JavaScript</h1>
+
+        <!-- Ejercicio 1 -->
+        <section>
+            <h2>Ejercicio 1: Cálculo de la paga</h2>
+            <label for="horas">Horas trabajadas: </label>
+            <input type="number" id="horas"><br><br>
+
+            <label for="coste">Coste por hora: </label>
+            <input type="number" id="coste"><br><br>
+
+            <button onclick="calcularPaga()">Calcular Paga</button>
+            <p id="resultado1"></p>
+        </section>
+
+        <!-- Ejercicio 2 -->
+        <section>
+            <h2>Ejercicio 2: Cálculo del IMC</h2>
+            <label for="peso">Peso (kg): </label>
+            <input type="number" id="peso" step="0.01"><br><br>
+
+            <label for="estatura">Estatura (m): </label>
+            <input type="number" id="estatura" step="0.01"><br><br>
+
+            <button onclick="calcularIMC()">Calcular IMC</button>
+            <p id="resultado2"></p>
+        </section>
+
+        <!-- Ejercicio 3 -->
+        <section>
+            <h2>Ejercicio 3: División con cociente y resto</h2>
+            <label for="n">Primer número (dividendo): </label>
+            <input type="number" id="n"><br><br>
+
+            <label for="m">Segundo número (divisor): </label>
+            <input type="number" id="m"><br><br>
+
+            <button onclick="calcularDivision()">Calcular División</button>
+            <p id="resultado3"></p>
+        </section>
+
+        <!-- Ejercicio 4 -->
+        <section>
+            <h2>Ejercicio 4: Cálculo de capital en una inversión</h2>
+            <label for="cantidad">Cantidad a invertir: </label>
+            <input type="number" id="cantidad"><br><br>
+
+            <label for="interes">Interés anual (%): </label>
+            <input type="number" id="interes" step="0.01"><br><br>
+
+            <label for="años">Número de años: </label>
+            <input type="number" id="años"><br><br>
+
+            <button onclick="calcularInversion()">Calcular Capital</button>
+            <p id="resultado4"></p>
+        </section>
+
+        <!-- Ejercicio 5 -->
+        <section>
+            <h2>Ejercicio 5: Cálculo del peso total de un paquete</h2>
+            <label for="payasos">Número de payasos vendidos: </label>
+            <input type="number" id="payasos"><br><br>
+
+            <label for="muñecas">Número de muñecas vendidas: </label>
+            <input type="number" id="muñecas"><br><br>
+
+            <button onclick="calcularPeso()">Calcular Peso Total</button>
+            <p id="resultado5"></p>
+        </section>
+
+        <!-- Ejercicio 6 -->
+        <section>
+            <h2>Ejercicio 6: Precio de barras de pan con descuento</h2>
+            <label for="barrasNAD">Número de barras no al dia: </label>
+            <input type="number" id="barrasNAD"><br><br>
+
+            <label for="barrasAD">Número total de barras: </label>
+            <input type="number" id="barrasAD"><br><br>
+
+            <button onclick="calcularPrecio()">Calcular Precio Final</button>
+            <p id="resultado6"></p>
+        </section>
+
+        <!-- Ejercicio 7 -->
+        <section>
+            <h2>Ejercicio 7: Cuestionario de Sí o No</h2>
+            <p>Responde "sí" o "no" a las siguientes preguntas:</p>
+
+            <label for="pregunta1">¿El cielo es azul?</label>
+            <select id="pregunta1">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <label for="pregunta2">¿2 + 2 es igual a 4?</label>
+            <select id="pregunta2">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <label for="pregunta3">¿La tierra es plana?</label>
+            <select id="pregunta3">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <button onclick="cuestionario()">Enviar respuestas</button>
+            <p id="resultado7"></p>
+        </section>
+
+        <!-- Ejercicio 8 -->
+        <section>
+            <h2>Ejercicio 8: Autenticación de Usuario</h2>
+            <label for="usuario">Usuario: </label>
+            <input type="text" id="usuario" placeholder="Introduce tu usuario"><br><br>
+
+            <label for="contraseña">Contraseña: </label>
+            <input type="password" id="contraseña" placeholder="Introduce tu contraseña"><br><br>
+
+            <button onclick="autenticar()">Iniciar Sesión</button>
+            <p id="resultado8"></p>
+        </section>
+
+        <!-- Ejercicio 9 -->
+        <section>
+            <h2>Ejercicio 9: Evaluación de Satisfacción</h2>
+            <label for="evaluacion">¿Cuánto te gusta el chocolate? (1-10): </label>
+            <input type="number" id="evaluacion" min="1" max="10" placeholder="Introduce un número entre 1 y 10"><br><br>
+
+            <button onclick="evaluarSatisfaccion()">Enviar evaluación</button>
+            <p id="resultado9"></p>
+        </section>
+
+        <!-- Ejercicio 10 -->
+        <section>
+            <h2>Ejercicio 10: Evaluación de Puntaje</h2>
+            <label for="nota">Ingresa tu puntaje (1-10): </label>
+            <input type="number" id="nota" min="1" max="10" placeholder="Introduce una nota"><br><br>
+
+            <button onclick="evaluarNota()">Enviar Nota</button>
+            <p id="resultado10"></p>
+        </section>
+    </body>
+</html>

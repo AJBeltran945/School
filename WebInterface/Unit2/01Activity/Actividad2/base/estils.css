@@ -1,0 +1,63 @@
+body {
+  background-color: grey;
+}
+
+div#imatges {
+  background-color: blueviolet;
+  padding: 5px;
+  margin:5px;
+  height: 500px;
+  position: relative;
+}
+
+p#titol {
+  font-size: 3rem;
+  text-decoration: underline;
+  font-style: italic;
+  margin: 5px;
+  position: fixed;
+  /* CSS BELOW */
+
+  display: none;
+}
+
+h2 {
+  font-size: 40px;
+  color: white;
+  margin: 0px;
+  position: relative;
+  /* CSS BELOW */
+
+  top: 150px;
+  right: -445px;
+  left: 500px;
+  z-index: 1;
+
+}
+
+img#model {
+  position: absolute;
+  /* CSS BELOW */
+
+  margin: 35px;
+}
+
+img#scissors {
+  position: absolute;
+  /* CSS BELOW */
+
+  bottom: 25px;
+  right: 20px;
+
+}
+
+.description {
+  font-size: 2em;
+  color: yellowgreen;
+  position: relative;
+  /* CSS BELOW */
+
+  bottom: 60px;
+  left: 10px;
+  max-width: 100%;
+}
