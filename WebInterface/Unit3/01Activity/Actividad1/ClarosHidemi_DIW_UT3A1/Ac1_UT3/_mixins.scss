@@ -1,0 +1,9 @@
+@mixin redondear($radio) {
+    border-radius: $radio;
+}
+
+.text-style {
+    font-weight: lighter;
+    text-decoration: underline;
+    font-family: sans-serif;
+}

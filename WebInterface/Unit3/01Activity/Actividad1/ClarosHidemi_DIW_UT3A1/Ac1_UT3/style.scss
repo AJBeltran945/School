@@ -1,0 +1,33 @@
+@import 'variables', 'mixins', 'functions';
+
+.profile-card {
+  background-color: aqua;
+
+  @if $screen-font-size > 24px {
+    padding: 200px;  
+  } @else {
+    padding: 10px;  
+  }
+
+  .avatar {
+    @include redondear(50%);
+    width: 100px;
+    height: 100px;
+    color: rgb(255, 0, 111);
+    background-color: rgb(255, 0, 183);
+    font-size: 2em;
+    text-align: center;
+    border: 12px solid graduar-color($secondary-color, 20%);
+  }
+  .name {
+    @extend .text-style;
+    color: $primary-color;
+    font-size: $font-size-large;
+  }
+
+  .role {
+    @extend .text-style;
+    color: $secondary-color;
+    font-size: $font-size-small;
+  }
+}

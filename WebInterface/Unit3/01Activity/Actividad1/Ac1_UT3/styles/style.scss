@@ -1,0 +1,55 @@
+//Actividad5
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+
+// Actividad 1
+.name {
+    color: $primary-color;
+    font-size: $font-size-large;
+    font-weight: bold;
+}
+
+.role {
+    color: $secondary-color;
+    font-size: $font-size-small;
+    font-style: italic;
+}
+
+// Actividad 2
+.profile-card {
+    background-color: $primary-color;
+    color: $text-color;
+    padding: 1.5rem;
+    border: 5px solid $secondary-color;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    //Actividad 7
+    @if screen and (min-width: 740px) {
+        padding: 2rem;
+    }
+
+    @else {
+        padding: 1rem;
+    }
+
+    .name {
+        @extend .text-style; //Actividad 4
+        color: $secondary-color;
+    }
+
+    .role {
+        @extend .text-style; //Actividad 4
+        margin-top: 0.5rem;
+    }
+
+    // Actividad 3
+    .avatar {
+        @include border-radius(50%);
+        border: 10px solid adjust-color($secondary-color, -10%); //Actividad 6
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+
+    }
+}

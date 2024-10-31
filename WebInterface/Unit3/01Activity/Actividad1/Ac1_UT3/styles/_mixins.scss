@@ -1,0 +1,10 @@
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+.text-style {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: $text-color;
+    text-align: center;
+}
