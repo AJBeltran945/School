@@ -61,7 +61,7 @@
 
     // Crear instancias de "Ficcion"
     $libroFiccion = new LibroFiccion("1984", 1949);
-    $autorFiccion = new AutorFiccion("George Orwell", "Británica";
+    $autorFiccion = new AutorFiccion("George Orwell", "Británica");
 
     // Crear instancias de "Ciencia"
     $libroCiencia = new LibroCiencia("Breve historia del tiempo", 1988);
