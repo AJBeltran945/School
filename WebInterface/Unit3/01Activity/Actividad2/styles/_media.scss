@@ -1,0 +1,128 @@
+/* Responsive styles for widths 500px, 450px, 400px, and 350px */
+@media screen and (max-width: 500px) {
+  .header {
+
+    flex-direction: column;
+
+    .header-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .header-content {
+      display: block;
+      width: 100%;
+      text-align: center;
+
+      h1, h2 {
+        font-size: 1.5em;
+      }
+
+      .logo{
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn{
+        width: 75%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main-content{
+    .introduction p {
+      max-width: 90%;
+    }
+    .stats{
+      .info {
+        flex-direction: column;
+
+        .stat1, .stat2, .stat3 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .rankings {
+      flex-direction: column;
+      align-items: center;
+
+      .info {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .footer {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+
+        .logo {
+          img {
+            margin-bottom: 10px;
+          }
+        }
+
+        .address {
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer{
+    .footer-content {
+      text-align: center;
+
+      .logo {
+        img {
+          margin-bottom: 10px;
+        }
+      }
+
+      .address {
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .header {
+    .header-content {
+      h1, h2 {
+        font-size: 1.2em;
+      }
+    }
+  }
+  button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+  .main-content{
+    .introduction {
+      h2 {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 0.8em;
+      }
+    }
+  }
+  .footer{
+    .copyright{
+        font-size: 0.6em;
+    }
+  }
+}

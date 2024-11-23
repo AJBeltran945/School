@@ -1,5 +1,5 @@
 <?php
-namespace Biblioteca\Ficcion;
+namespace biblioteca\ficcion;
 
 class autor {
     private $nombre;

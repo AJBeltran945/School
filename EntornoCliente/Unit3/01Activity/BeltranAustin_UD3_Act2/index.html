@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREA DWEC UT3</title>
+</head>
+<body onload="generarDatos()">
+<div id="resultado"></div>
+</body>
+
+<script>
+    function generarDatos(){
+
+        // Data
+        let info = ["Austin Jenner", "Beltran Panghulan", 4, 9, 2005]; // Nombre, Apellidos, Día, Mes, Año
+
+        // Name and Surname configs
+        const fullName = `${info[0]} ${info[1]}`; // Nombre completo
+        const nameNum = fullName.length; // Número de caracteres
+        const fullNameCAPS = fullName.toUpperCase(); // Nombre completo en mayúsculas
+        const firstA = fullNameCAPS.indexOf('A'); // Primera A
+        const lastA = fullNameCAPS.lastIndexOf('A'); // Última A
+        const fullNameNo3 = fullName.slice(3); // Nombre sin 3 primeras letras
+
+        // Age configs
+        const today = new Date(); // Fecha actual
+        const dateOfBirth = new Date(info[4], info[3] - 1, info[2]); // Fecha de nacimiento
+        const age = today.getFullYear() - dateOfBirth.getFullYear(); // Edad
+        const nextBirthday = new Date(today.getFullYear(), info[3] - 1, info[2]); // Próximo cumpleaños
+        if (today > nextBirthday) { // Si ya ha pasado el cumpleaños
+            nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+        }
+        const daysForBirthday = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24)); // Días para el cumpleaños
+        const ageSqrt = Math.sqrt(age).toFixed(2); // Raíz cuadrada de la edad
+
+        // Show info
+        document.getElementById("resultado").innerHTML = `
+        <h1>TAREA DWEC UT3</h1><hr/>
+        Buenos días ${fullName}<br/>
+        Tu nombre completo tiene ${nameNum} caracteres, incluidos espacios.<br/>
+        Tu nombre completo todo en mayúsculas es: ${fullNameCAPS}<br/>
+        La primera letra A de tu nombre completo está en la posición: ${firstA === -1 ? 'No hay A' : firstA + 1}<br/>
+        La última letra A de tu nombre completo está en la posición: ${lastA === -1 ? 'No hay A' : lastA + 1}<br/>
+        Tu nombre menos las 3 primeras letras es: ${fullNameNo3}<br/>
+        Tu edad es: ${age} años.<br/>
+        Faltan ${daysForBirthday} días para tu cumpleaños.<br/>
+        La raíz cuadrada de tu edad es: ${ageSqrt}
+        <br/><button id="abrirVentana">Abrir nueva ventana</button>
+    `;
+
+        // Modify info
+        info = [info[0], info[1], age]; // Nombre, Apellido, Edad
+
+        // Window configs
+        document.getElementById("abrirVentana").onclick = function() {
+            const newWindow = window.open("", "", "width=600,height=400"); // Abrir nueva ventana
+
+            const selection = window.getSelection() || document.getSelection(); // Selección de texto
+
+            // Info in new window
+            newWindow.document.write(`
+            <h2>Hola mi nombre es ${info[0]}, mi apellido es ${info[1]} y tengo ${info[2]} años</h2>
+            <h3>${selection && selection.toString() ? 'Has seleccionado la palabra "' + selection.toString() + '" de la ventana principal' : 'NO has seleccionado nada'}</h3>
+            URL Completa: ${window.location.href}<br/>
+            Protocolo utilizado: ${window.location.protocol}<br/>
+            Nombre en código del navegador: ${navigator.appCodeName}<br/>
+            El número de urls disponibles en el historial es ${history.length}<br/>
+        `);
+
+            // Verify Java
+            if (navigator.javaEnabled()) {
+                newWindow.document.write("Java SI disponible en esta ventana<br/>");
+            } else {
+                newWindow.document.write("Java NO disponible en esta ventana<br/>");
+            }
+
+            // Closes window after 5 seconds
+            setTimeout(() => {
+                newWindow.close();
+            }, 5000);
+        };
+    }
+</script>
+
+</html>

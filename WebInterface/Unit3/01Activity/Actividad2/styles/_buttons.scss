@@ -1,0 +1,21 @@
+button {
+  padding: 10px 20px;
+  color: $text-color;
+  background-color: $primary-color;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  font-size: 1em;
+  font-family: Arial, serif;
+
+  &:hover {
+    background-color: darken($primary-color, 20%);
+  }
+}
+
+.svg{
+  &:hover {
+    box-shadow: black 0px 0px 10px;
+  }
+}

@@ -1,0 +1,102 @@
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  .introduction {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 1.8em;
+      color: $secondary-color;
+    }
+
+    p {
+      font-size: 1em;
+      color: $text-color;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    .speak-with-rep {
+      margin-top: 20px;
+    }
+  }
+
+  .stats {
+    background-color: $secondary-color;
+    color: white;
+    text-align: center;
+    border-bottom: $primary-color 7.5px solid;
+
+    .info{
+      display: flex;
+      color: #333333;
+
+      img{
+        max-width: 100px;
+        margin-bottom: -15  px;
+      }
+
+      p:first-of-type {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: -10px;
+      }
+
+      p {
+        font-size: 1.25em;
+      }
+
+      .stat1 {
+        text-align: center;
+        background-color: #fbeecc;
+        width: 33.33%;
+      }
+
+      .stat2 {
+        text-align: center;
+        background-color: #f1f1f0;
+        width: 33.33%;
+      }
+
+      .stat3 {
+        text-align: center;
+        background-color: #f4d57f;
+        width: 33.33%;
+      }
+    }
+  }
+
+  .rankings {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .info{
+      width: 225px;
+
+      h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        color: $secondary-color;
+      }
+
+      p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+      }
+
+      button{
+        width: 100%;
+      }
+    }
+
+    img{
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
