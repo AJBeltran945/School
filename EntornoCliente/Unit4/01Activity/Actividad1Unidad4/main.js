@@ -134,17 +134,27 @@ function drawPiece(piece, offsetX, offsetY) {
     });
 }
 
+// Function to draw the next piece
 function drawNextPiece() {
+    if (!gameStarted || gameOver) return; // Don't draw anything if the game hasn't started or if it's over
+
     nextPieceContext.clearRect(0, 0, nextPieceCanvas.width, nextPieceCanvas.height); // Clear the next piece canvas
 
     // Calculate the center position for the next piece to fit inside the smaller canvas
-    const offsetX = Math.floor((nextPieceCanvas.width / squareSize - nextPiece.shape[0].length) / 2);
-    const offsetY = Math.floor((nextPieceCanvas.height / squareSize - nextPiece.shape.length) / 2);
+    const offsetX = (nextPieceCanvas.width / squareSize - nextPiece.shape[0].length) / 2;
+    const offsetY = (nextPieceCanvas.height / squareSize - nextPiece.shape.length) / 2;
 
-    // Draw the next piece on the next piece canvas
-    drawPiece(nextPiece, offsetX, offsetY);
+    nextPiece.shape.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            if (cell) {
+                nextPieceContext.fillStyle = nextPiece.color;
+                nextPieceContext.fillRect((x + offsetX) * squareSize, (y + offsetY) * squareSize, squareSize, squareSize);
+                nextPieceContext.strokeStyle = 'white';
+                nextPieceContext.strokeRect((x + offsetX) * squareSize, (y + offsetY) * squareSize, squareSize, squareSize);
+            }
+        });
+    });
 }
-
 
 // Generate a random piece based on probabilities
 function generatePiece() {
@@ -333,7 +343,6 @@ function update() {
 
 // Event listener for the Play button
 document.getElementById('playButton').addEventListener('click', startGame);
-
 
 // Function to get the game speed based on the level
 function getGameSpeed(level) {
