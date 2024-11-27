@@ -112,50 +112,6 @@ function instantDrop() {
     }
 }
 
-// Hold piece functionality
-let heldPiece = null;
-let canHold = true;
-
-function holdPiece() {
-    if (!canHold) return;
-
-    if (heldPiece === null) {
-        heldPiece = currentPiece;
-        currentPiece = generatePiece();
-    } else {
-        const temp = currentPiece;
-        currentPiece = heldPiece;
-        heldPiece = temp;
-    }
-
-    posX = 3;
-    posY = 0;
-    canHold = false;
-}
-
-// Draw the held piece
-function drawHeldPiece() {
-    const offsetX = columns + 2; // Position to the right of the board
-    const offsetY = 1;
-
-    // Clear the hold area
-    context.fillStyle = 'black';
-    context.fillRect(offsetX * squareSize, offsetY * squareSize, 4 * squareSize, 4 * squareSize);
-
-    if (heldPiece) {
-        heldPiece.shape.forEach((row, y) => {
-            row.forEach((cell, x) => {
-                if (cell) {
-                    context.fillStyle = heldPiece.color;
-                    context.fillRect((x + offsetX) * squareSize, (y + offsetY) * squareSize, squareSize, squareSize);
-                    context.strokeStyle = 'white';
-                    context.strokeRect((x + offsetX) * squareSize, (y + offsetY) * squareSize, squareSize, squareSize);
-                }
-            });
-        });
-    }
-}
-
 // Update game state
 let currentPiece = generatePiece();
 let posX = 3, posY = 0;
@@ -167,8 +123,6 @@ function update() {
         currentPiece = generatePiece();
         posX = 3;
         posY = 0;
-
-        canHold = true;
 
         if (checkCollisions(currentPiece, posX, posY)) {
             board = Array.from({ length: rows }, () => Array(columns).fill(0));
@@ -182,7 +136,6 @@ function update() {
 function play() {
     drawBoard();
     drawPiece(currentPiece, posX, posY);
-    drawHeldPiece();
     update();
 }
 
@@ -200,41 +153,10 @@ document.addEventListener('keydown', event => {
         const rotatedShape = currentPiece.shape[0].map((_, i) => currentPiece.shape.map(row => row[i]).reverse());
         const originalShape = currentPiece.shape;
         currentPiece.shape = rotatedShape;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if (checkCollisions(currentPiece, posX, posY)) {
             currentPiece.shape = originalShape;
         }
     } else if (event.key === ' ') {
         instantDrop();
-    } else if (event.key === 'Shift') {
-        holdPiece();
     }
 });
