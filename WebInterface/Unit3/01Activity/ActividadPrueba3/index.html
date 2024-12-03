@@ -1,10 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Practica</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+
+        .spin {
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            } to {
+                  transform: rotate(360deg);
+              }
+        }
+
+        .big {
+            animation: rezise 2s linear infinite;
+        }
+
+        @keyframes rezise {
+            from {
+                transform: scale(1);
+            } to {
+                  transform: scale(1.5);
+              }
+        }
+
+        @keyframes moveAndChange {
+            from{
+                transform: translateX(0%) scale(1) rpate(0deg);
+                background-color: blue;
+            }
+            50%{
+                transform: translateX(100%) scale(1.5) rotate(180deg);
+                background-color: yellow;
+            }
+            to{
+                transform: translateX(-100%) scale(1) rotate(360deg);
+                background-color: blue;}
+
+        }
+
+        @keyframes spining {
+
+            fromç{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            animation-name: moveAndChange;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .rectangle {
+            width: 150px;
+            height: 50px;
+            background-color: green;
+            animation-name: spining;
+            animation-duration: 3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+    </style>
 </head>
 <body>
-
+<div class="square spin"></div>
+<br><br><br>
+<div class="square big"></div>
+<br><br><br>
+<div class="circle"></div>
+<br><br><br>
+<div class="rectangle"></div>
 </body>
 </html>

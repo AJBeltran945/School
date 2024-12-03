@@ -1,0 +1,91 @@
+// Define animation keyframes
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Apply the animations
+body {
+  font-family: 'Open Sans', sans-serif;
+
+  #cinema{
+    display: flex;
+    flex-direction: column;
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+
+      li {
+        width: 200px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+        border: black 1px solid;
+        object-fit: cover;
+        transform: translateX(100%);
+        animation: slideInFromRight 2s ease-out forwards;
+        animation-delay: 1.5s;
+      }
+
+      li:nth-child(1),
+      li:nth-child(2) {
+        order: 1;
+      }
+
+      li:nth-child(3),
+      li:nth-child(4) {
+        order: 2;
+      }
+
+      li {
+        flex: 1 1 calc(50% - 20px); // Set each item to take 50% width minus gap
+      }
+
+      li:nth-child(3) {
+        margin-top: 20px; // Add spacing between rows if needed
+      }
+    }
+
+  }
+  #about, #contact {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    animation: fadeIn 2s ease-in-out forwards;
+  }
+
+  h3 {
+    animation: slideDown 1.5s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+}
