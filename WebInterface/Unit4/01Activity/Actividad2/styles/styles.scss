@@ -1,0 +1,12 @@
+$logo-bg-color: blue;
+$image-bg-color: aqua;
+
+.logo-container {
+  background-color: $logo-bg-color;
+  padding: 20px;
+}
+
+.image-container {
+  background-color: $image-bg-color;
+  padding: 20px;
+}
