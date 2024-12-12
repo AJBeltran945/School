@@ -1,0 +1,19 @@
+.login-container {
+  background-color: $form-background-color;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: $text-color;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

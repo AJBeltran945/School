@@ -2,9 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Aseguradora</title>
+    <script src="code.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+<form id="formularioSeguro">
+    <!-- Personal Information Group -->
+    <div class="form-group">
+        <h2>Información Personal</h2>
+        <div class="form-row">
+            <div class="col">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="col">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" required>
+            </div>
+            <div class="col">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="col">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Information Group -->
+    <div class="form-group">
+        <h2>Información del Vehículo</h2>
+        <div class="form-row">
+            <div class="col">
+                <label for="marca">Marca</label>
+                <select id="marca" name="marca" required>
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="modelo">Modelo</label>
+                <select id="modelo" name="modelo" required>
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="tipoSeguro">Tipo de Seguro</label>
+                <select id="tipoSeguro" name="tipoSeguro" required>
+                    <option value="terceros">Terceros</option>
+                    <option value="tercerosAmpliado">Terceros Ampliado</option>
+                    <option value="conFranquicia">Con Franquicia</option>
+                    <option value="todoRiesgo">Todo Riesgo</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="tipoVehiculo">Tipo de Vehículo</label>
+                <select id="tipoVehiculo" name="tipoVehiculo" required>
+                    <option value="diesel">Diesel</option>
+                    <option value="gasolina">Gasolina</option>
+                    <option value="hibrido">Híbrido</option>
+                    <option value="electrico">Eléctrico</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="fechaMatriculacion">Fecha de Matriculación</label>
+                <input type="date" id="fechaMatriculacion" name="fechaMatriculacion" required>
+            </div>
+            <div class="col">
+                <label for="matricula">Matrícula</label>
+                <input type="text" id="matricula" name="matricula" required>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Information Group -->
+    <div class="form-group">
+        <h2>Otros Datos</h2>
+        <div class="form-row">
+            <div class="col">
+                <label for="fotoCarnet">Foto del Carnet de Conducir</label>
+                <input type="file" id="fotoCarnet" name="fotoCarnet" accept="image/jpeg">
+                <div id="previsualizacion" class="hidden">
+                    <img id="imagenPrevia" src="#" alt="Previsualización" />
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">Acepto los términos y condiciones</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <button type="submit">Calcular Seguro</button>
+        </div>
+    </div>
+</form>
+
+<div id="resultados" class="hidden"></div>
 
 </body>
 </html>
