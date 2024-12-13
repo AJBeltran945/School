@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Aseguradora</title>
-    <script src="code.js"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 <form id="formularioSeguro">
     <!-- Personal Information Group -->
-    <div class="form-group">
+    <div class="form-grupo">
         <h2>Información Personal</h2>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -21,7 +20,7 @@
                 <input type="text" id="apellidos" name="apellidos" required>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="dni">DNI</label>
                 <input type="text" id="dni" name="dni" required>
@@ -31,7 +30,7 @@
                 <input type="email" id="correo" name="correo" required>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="telefono">Teléfono</label>
                 <input type="tel" id="telefono" name="telefono" required>
@@ -41,12 +40,30 @@
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
             </div>
         </div>
+        <div class="form-fila">
+            <div class="col">
+                <label for="comunidad">Comunidad</label>
+                <select id="comunidad" name="comunidad" required>
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="provincia">Provincia</label>
+                <select id="provincia" name="provincia" required>
+                    <!-- Options will be dynamically loaded -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="codigoPostal">Codigo Postal</label>
+                <input type="text" id="codigoPostal" name="codigoPostal" required>
+            </div>
+        </div>
     </div>
 
     <!-- Car Information Group -->
-    <div class="form-group">
+    <div class="form-grupo">
         <h2>Información del Vehículo</h2>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="marca">Marca</label>
                 <select id="marca" name="marca" required>
@@ -60,7 +77,7 @@
                 </select>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="tipoSeguro">Tipo de Seguro</label>
                 <select id="tipoSeguro" name="tipoSeguro" required>
@@ -80,7 +97,11 @@
                 </select>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-fila">
+            <div class="col">
+                <label for="fechaCarnet">Fecha de expedición del Carnet</label>
+                <input type="date" id="fechaCarnet" name="fechaCarnet" required>
+            </div>
             <div class="col">
                 <label for="fechaMatriculacion">Fecha de Matriculación</label>
                 <input type="date" id="fechaMatriculacion" name="fechaMatriculacion" required>
@@ -93,30 +114,33 @@
     </div>
 
     <!-- Other Information Group -->
-    <div class="form-group">
+    <div class="form-grupo">
         <h2>Otros Datos</h2>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <label for="fotoCarnet">Foto del Carnet de Conducir</label>
-                <input type="file" id="fotoCarnet" name="fotoCarnet" accept="image/jpeg">
+                <input type="file" id="fotoCarnet" name="fotoCarnet">
                 <div id="previsualizacion" class="hidden">
                     <img id="imagenPrevia" src="#" alt="Previsualización" />
                 </div>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-fila">
             <div class="col">
                 <input type="checkbox" id="terminos" name="terminos" required>
                 <label for="terminos">Acepto los términos y condiciones</label>
             </div>
         </div>
-        <div class="form-row">
-            <button type="submit">Calcular Seguro</button>
+        <div class="form-fila">
+            <button type="submit" onclick="calcularSeguro()">Calcular Seguro</button>
         </div>
     </div>
 </form>
 
 <div id="resultados" class="hidden"></div>
 
+
+
 </body>
+<script src="code.js"></script>
 </html>
