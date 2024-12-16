@@ -77,6 +77,34 @@ h2 {
   border: 2px solid #2ecc71;
   border-radius: 4px;
 }
+#formularioSeguro .form-grupo .form-fila .col .error-mensaje {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+#formularioSeguro .form-grupo .form-fila .col-checkbox {
+  display: flex;
+  flex-direction: column;
+}
+#formularioSeguro .form-grupo .form-fila .col-checkbox .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+#formularioSeguro .form-grupo .form-fila .col-checkbox .checkbox-wrapper input[type=checkbox] {
+  margin-right: 0.5rem;
+  width: auto;
+}
+#formularioSeguro .form-grupo .form-fila .col-checkbox .checkbox-wrapper label {
+  margin: 0;
+  font-weight: normal;
+}
+#formularioSeguro .form-grupo .form-fila .col-checkbox .error-mensaje {
+  margin-top: 0.5rem;
+  color: red;
+  font-size: 12px;
+  display: none;
+}
 
 button[type=submit] {
   background-color: #3498db;

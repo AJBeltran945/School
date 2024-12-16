@@ -61,7 +61,43 @@
             border-radius: 4px;
           }
         }
+
+        .error-mensaje {
+          color: red;
+          font-size: 12px;
+          margin-top: 4px;
+          display: block;
+        }
+      }
+
+      // Nueva clase para checkbox y error
+      .col-checkbox {
+        display: flex;
+        flex-direction: column;
+
+        .checkbox-wrapper {
+          display: flex;
+          align-items: center;
+
+          input[type="checkbox"] {
+            margin-right: 0.5rem;
+            width: auto;
+          }
+
+          label {
+            margin: 0;
+            font-weight: normal;
+          }
+        }
+
+        .error-mensaje {
+          margin-top: 0.5rem;
+          color: red;
+          font-size: 12px;
+          display: none;
+        }
       }
     }
   }
+
 }

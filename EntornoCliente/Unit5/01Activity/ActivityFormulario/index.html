@@ -14,30 +14,36 @@
             <div class="col">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" required>
+                <span id="error-input1" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="apellidos">Apellidos</label>
                 <input type="text" id="apellidos" name="apellidos" required>
+                <span id="error-input2" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
             <div class="col">
                 <label for="dni">DNI</label>
                 <input type="text" id="dni" name="dni" required>
+                <span id="error-input3" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="correo">Correo Electrónico</label>
                 <input type="email" id="correo" name="correo" required>
+                <span id="error-input4" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
             <div class="col">
                 <label for="telefono">Teléfono</label>
                 <input type="tel" id="telefono" name="telefono" required>
+                <span id="error-input5" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <span id="error-input6" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
@@ -56,6 +62,7 @@
             <div class="col">
                 <label for="codigoPostal">Codigo Postal</label>
                 <input type="text" id="codigoPostal" name="codigoPostal" required>
+                <span id="error-input7" class="error-mensaje"></span>
             </div>
         </div>
     </div>
@@ -101,14 +108,17 @@
             <div class="col">
                 <label for="fechaCarnet">Fecha de expedición del Carnet</label>
                 <input type="date" id="fechaCarnet" name="fechaCarnet" required>
+                <span id="error-input8" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="fechaMatriculacion">Fecha de Matriculación</label>
                 <input type="date" id="fechaMatriculacion" name="fechaMatriculacion" required>
+                <span id="error-input9" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="matricula">Matrícula</label>
                 <input type="text" id="matricula" name="matricula" required>
+                <span id="error-input10" class="error-mensaje"></span>
             </div>
         </div>
     </div>
@@ -123,14 +133,19 @@
                 <div id="previsualizacion" class="hidden">
                     <img id="imagenPrevia" src="#" alt="Previsualización" />
                 </div>
+                <span id="error-input11" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
-            <div class="col">
-                <input type="checkbox" id="terminos" name="terminos" required>
-                <label for="terminos">Acepto los términos y condiciones</label>
+            <div class="col col-checkbox">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <label for="terminos">Acepto los términos y condiciones</label>
+                </div>
+                <span id="error-input12" class="error-mensaje">Debes aceptar los términos y condiciones</span>
             </div>
         </div>
+
         <div class="form-fila">
             <button type="submit" onclick="calcularSeguro()">Calcular Seguro</button>
         </div>
@@ -138,8 +153,6 @@
 </form>
 
 <div id="resultados" class="hidden"></div>
-
-
 
 </body>
 <script src="code.js"></script>
