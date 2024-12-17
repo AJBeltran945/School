@@ -112,6 +112,12 @@ const inputs = [
         inputNacimiento: false,
     },
     {
+        inputComunidad: false,
+    },
+    {
+        inputProvincia: false,
+    },
+    {
         inputCodigoPostal: false,
     },
     {
@@ -141,7 +147,15 @@ const inputs = [
 ]
 
 function  calcularSeguro(){
+    let precio = 0;
+    let edad = 0;
+    let tipoSeguro = 0;
+    let tipoVehiculo = 0;
+    let fechaCarnet = 0;
+    let fechaMatriculacion = 0;
+    let matricula = 0;
 
+    
 }
 
 
@@ -600,4 +614,13 @@ window.onload = function() {
     // Event listeners para cambiar dinámicamente
     document.getElementById('comunidad').addEventListener('change', actualizarProvincias);
     document.getElementById('marca').addEventListener('change', actualizarModelos);
+    const button = document.getElementById('enviar');
+
+    const allTrue = inputs.every(input => Object.values(input)[0] === true);
+
+    if (allTrue) {
+        button.disabled = false;
+    }else{
+        button.disabled = true;
+    }
 }
