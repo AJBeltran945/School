@@ -7,6 +7,27 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+  .form-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-right: 2rem;
+
+    h1{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    img{
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+  }
   .form-grupo {
     padding-left: 2rem;
     padding-bottom: 1.5rem;

@@ -6,7 +6,7 @@ body {
 }
 
 h2 {
-  color: #3498db;
+  color: #280137;
   margin-bottom: 1rem;
 }
 
@@ -23,6 +23,25 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+#formularioSeguro .form-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+#formularioSeguro .form-logo h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+#formularioSeguro .form-logo img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
 #formularioSeguro .form-grupo {
   padding-left: 2rem;
   padding-bottom: 1.5rem;
@@ -31,7 +50,7 @@ h2 {
 }
 #formularioSeguro .form-grupo h2 {
   font-size: 1.5rem;
-  border-bottom: 2px solid #2ecc71;
+  border-bottom: 2px solid #FADA5E;
   padding-bottom: 0.5rem;
   padding-right: 2rem;
   width: 100%;
@@ -61,9 +80,9 @@ h2 {
 }
 #formularioSeguro .form-grupo .form-fila .col input:focus,
 #formularioSeguro .form-grupo .form-fila .col select:focus {
-  border-color: #3498db;
+  border-color: #280137;
   outline: none;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  box-shadow: 0 0 5px rgba(40, 1, 55, 0.5);
 }
 #formularioSeguro .form-grupo .form-fila .col input[type=file] {
   padding: 0;
@@ -74,7 +93,7 @@ h2 {
 #formularioSeguro .form-grupo .form-fila .col #previsualizacion img {
   max-width: 100%;
   height: auto;
-  border: 2px solid #2ecc71;
+  border: 2px solid #FADA5E;
   border-radius: 4px;
 }
 #formularioSeguro .form-grupo .form-fila .col .error-mensaje {
@@ -106,31 +125,74 @@ h2 {
   display: none;
 }
 
-button[type=submit] {
-  background-color: #3498db;
-  color: #fff;
+button {
+  background-color: #280137;
+  color: white;
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-button[type=submit]:hover {
-  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+button:disabled {
+  background-color: rgb(112.8571428571, 2.8214285714, 155.1785714286);
+  color: gray;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
 }
 
 #resultados {
   width: 80%;
   max-width: 800px;
   margin: 2rem auto;
-  padding: 1rem;
-  background: #2ecc71;
-  color: #fff;
+  padding: 1.5rem;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-#resultados p {
-  margin: 0.5rem 0;
+#resultados .resultado-grupo {
+  padding-left: 2rem;
+  padding-bottom: 1.5rem;
+  padding-right: 2rem;
+  margin-right: 2rem;
+}
+#resultados .resultado-grupo h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #FADA5E;
+  padding-bottom: 0.5rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+#resultados .resultado-grupo .result-fila {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+#resultados .resultado-grupo .result-fila .tarjeta {
+  min-width: 200px;
+  min-height: 200px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+#resultados .resultado-grupo .result-fila .tarjeta .contratar {
+  background-color: green;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#resultados .resultado-grupo .result-fila .tarjeta .cancelar {
+  background-color: red;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+#resultados .resultado-grupo .result-fila .tarjeta h3 {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

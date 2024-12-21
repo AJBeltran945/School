@@ -1,3 +1,37 @@
+// ========================
+
+// Parte del formulario
+
+// ========================
+
+
+// Cargar las opciones al cargar la página
+window.onload = function() {
+    cargarComunidades();
+    cargarProvincias();
+    cargarMarcas();
+    cargarModelo();
+
+    // Event listeners para cambiar dinámicamente
+    document.getElementById('comunidad').addEventListener('change', actualizarProvincias);
+    document.getElementById('marca').addEventListener('change', actualizarModelos);
+    document.getElementById('tipoSeguro').addEventListener('change', function() {
+        inputs[16][1] = true;
+        comprobarCampos();
+    });
+    document.getElementById('tipoVehiculo').addEventListener('change', function() {
+        inputs[17][1] = true;
+        comprobarCampos();
+    });
+
+    // Deshabilitar el botón de enviar para evitar envíos accidentales
+    button.disabled = true;
+
+    // Ocultar los resultados al principio
+    resultados.style.display = 'none';
+}
+
+// Array bidimensional con las comunidades autónomas y sus provincias
 const comunidadesYProvincias = [
     ["Andalucía", ["Almería", "Cádiz", "Córdoba", "Granada", "Huelva", "Jaén", "Málaga", "Sevilla"]],
     ["Aragón", ["Huesca", "Teruel", "Zaragoza"]],
@@ -20,6 +54,7 @@ const comunidadesYProvincias = [
     ["Melilla", ["Melilla"]] // Ciudad autónoma
 ];
 
+// Array bidimensional con las marcas de coches y sus modelos
 const marcasYModelos = [
     ["Alfa Romeo", ["Giulietta", "Giulia", "Stelvio", "Tonale"]],
     ["Audi", ["A1", "A3", "A4", "A5", "A6", "A7", "A8", "Q2", "Q3", "Q5", "Q7", "Q8", "e-tron"]],
@@ -63,6 +98,7 @@ const marcasYModelos = [
     ["Bentley", ["Continental GT", "Bentayga", "Flying Spur"]]
 ];
 
+// Variables para los campos del formulario
 const nombre = document.getElementById('nombre');
 const apellido = document.getElementById('apellidos');
 const dni = document.getElementById('dni');
@@ -75,7 +111,10 @@ const fechaMartriculacion = document.getElementById('fechaMatriculacion');
 const matricula = document.getElementById('matricula');
 const fichero = document.getElementById('fotoCarnet');
 const terminos = document.getElementById('terminos');
+const button = document.getElementById('enviar');
+const resultados = document.getElementById('resultados');
 
+// Event listeners para los campos del formulario en tiempo real
 nombre.addEventListener('input', validarNombre);
 apellido.addEventListener('input', validarApellido);
 dni.addEventListener('input', validarDni);
@@ -86,76 +125,53 @@ codigoPostal.addEventListener('input', validarCodigoPostal);
 fechaCarnet.addEventListener('input', validarFechaCarnet);
 fechaMartriculacion.addEventListener('input', validarFechaMatriculacion);
 matricula.addEventListener('input', validarMatricula);
-fichero.addEventListener('input', validarFichero);
+fichero.addEventListener('change', validarFichero);
 terminos.addEventListener('input', validarTerminos);
 
-
-// Función para calcular el seguro
-
+// Array con los campos del formulario y su estado de validación
+// Mi idea con este array es que cada vez que se valide un campo, se cambie su estado a true
+// cada vez que llama la funciones de error o quitar error se cambie el estado del campo a true o false
+// dependiendo si hay error o no
 const inputs = [
-    {
-        inputNombre: false,
-    },
-    {
-        inputApellido: false,
-    },
-    {
-        inputDni: false,
-    },
-    {
-        inputEmail: false,
-    },
-    {
-        inputTelefono: false,
-    },
-    {
-        inputNacimiento: false,
-    },
-    {
-        inputComunidad: false,
-    },
-    {
-        inputProvincia: false,
-    },
-    {
-        inputCodigoPostal: false,
-    },
-    {
-        inputMarca: false,
-    },
-    {
-        inputModelo: false,
-    },
-    {
-        inputTipoSeguro: false,
-    },
-    {
-        inputTipoVehiculo: false,
-    },
-    {
-        inputFechaCarnet: false,
-    },
-    {
-        inputFechaMatriculacion: false,
-    },
-    {
-        inputMatricula: false,
-    },
-    {
-        inputTerminos: false,
-    }
+    ["inputNombre", false],
+    ["inputApellido", false],
+    ["inputDni", false],
+    ["inputEmail", false],
+    ["inputTelefono", false],
+    ["inputNacimiento", false],
+    ["inputCodigoPostal", false],
+    ["inputFechaCarnet", false],
+    ["inputFechaMatriculacion", false],
+    ["inputMatricula", false],
+    ["inputFichero", true],
+    ["inputTerminos", false],
+    ["inputComunidad", false],
+    ["inputProvincia", false],
+    ["inputMarca", false],
+    ["inputModelo", false],
+    ["inputTipoSeguro", false],
+    ["inputTipoVehiculo", false]
 ]
 
-function  calcularSeguro(){
-    let precio = 0;
-    let edad = 0;
-    let tipoSeguro = 0;
-    let tipoVehiculo = 0;
-    let fechaCarnet = 0;
-    let fechaMatriculacion = 0;
-    let matricula = 0;
+// funcion para comprobar si todos los campos estan completos
+// y se compruebe si todos los campos están completos. Si todos los campos están completos,
+// se habilita el botón de enviar. Si no, se deshabilita.
+function comprobarCampos(){
+    const button = document.getElementById('enviar');
+    let alltrue = true;
 
-    
+    for (let i = 0; i < inputs.length; i++) {
+        if (!inputs[i][1]) {
+            alltrue = false;
+            break;
+        }
+    }
+
+    if (alltrue) {
+        button.disabled = false;
+    }else {
+        button.disabled = true;
+    }
 }
 
 
@@ -163,22 +179,29 @@ function  calcularSeguro(){
 
 
 // Función para mostrar un mensaje de error
+// que es un div que por defecto esta oculto
+// pero que se muestra cuando llama a este funcion
 function verError(id, message) {
     const errorElement = document.getElementById(`error-input${id}`);
     if (errorElement) {
         errorElement.innerText = message; // Set the error message
         errorElement.style.display = "block"; // Make sure the error is visible
-        console.log(errorElement)
+        inputs[id - 1][1] = false;
     }
+    comprobarCampos()
 }
 
 // Función para limpiar un mensaje de error
+// quitas el mensaje de error y lo ocultas
+// y cambias el estado del campo a true
 function quitarError(id) {
     const errorElement = document.getElementById(`error-input${id}`);
     if (errorElement) {
         errorElement.innerText = ""; // Clear the error message
         errorElement.style.display = "none"; // Hide the error
+        inputs[id - 1][1] = true;
     }
+    comprobarCampos()
 }
 
 
@@ -193,23 +216,23 @@ function validarNombre(event) {
     // Validar si el campo está vacío
     if (nombre.length === 0) {
         verError(1, 'El campo nombre no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar si el nombre tiene más de 30 caracteres
     if (nombre.length > 30) {
         verError(1, 'El nombre no puede tener más de 30 caracteres');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar que solo contiene letras (incluyendo acentos y la ñ), y un solo espacio entre nombres
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(\s[a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
     if (!regex.test(nombre)) {
         verError(1, 'El nombre solo puede contener letras, acentos y un único espacio entre nombres');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
+
     if (!hayError) {
         quitarError(1);
     }
@@ -223,23 +246,23 @@ function validarApellido(event){
     // Validar si el campo está vacío
     if (apellido.length === 0) {
         verError(2, 'El campo apellido no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar si el apellido tiene más de 30 caracteres
     if (apellido.length > 30) {
         verError(2, 'El apellido no puede tener más de 30 caracteres');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar que solo contiene letras (incluyendo acentos y la ñ), y un solo espacio entre apellidos
     const regex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(\s[a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
     if (!regex.test(apellido)) {
         verError(2, 'El apellido solo puede contener letras, acentos y un único espacio entre apellidos');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
+
     if (!hayError) {
         quitarError(2);
     }
@@ -253,23 +276,23 @@ function validarDni(event){
     // Validar si el campo está vacío
     if (dni.length === 0) {
         verError(3, 'El campo DNI no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar longitud (generalmente un DNI tiene 8 dígitos y 1 letra, por ejemplo: "12345678A")
     if (dni.length !== 9) {
         verError(3, 'El DNI debe tener 8 dígitos seguidos de una letra');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar el formato (8 dígitos seguidos de una letra mayúscula)
     const regex = /^\d{8}[A-Z]$/;
     if (!regex.test(dni)) {
         verError(3, 'El DNI debe contener 8 números seguidos de una letra mayúscula (por ejemplo, 12345678A)');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
+
     if (!hayError) {
         quitarError(3);
     }
@@ -283,17 +306,16 @@ function validarEmail(event){
     // Validar si el campo está vacío
     if (email.length === 0) {
         verError(4, 'El campo email no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar el formato del email
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!regex.test(email)) {
         verError(4, 'El email no tiene un formato válido (ejemplo: usuario@dominio.com)');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
     if (!hayError) {
         quitarError(4);
     }
@@ -307,17 +329,16 @@ function validarTelefono(event){
     // Validar si el campo está vacío
     if (telefono.length === 0) {
         verError(5, 'El campo teléfono no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar que solo contenga números y, opcionalmente, un "+" al inicio
     const regex = /^\+?[0-9]{9}$/;
     if (!regex.test(telefono)) {
         verError(5, 'El teléfono solo puede contener números y, opcionalmente, un "+" al inicio');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
     if (!hayError) {
         quitarError(5);
     }
@@ -355,6 +376,12 @@ function validarNacimiento(event){
         hayError = true;
     }
 
+    // Valida que la persona no puede tener más de 120 años
+    if (edad > 120) {
+        verError(6, 'La edad máxima permitida es de 120 años');
+        hayError = true;
+    }
+
     if (!hayError) {
         quitarError(6);
     }
@@ -368,17 +395,16 @@ function validarCodigoPostal(event){
     // Validar si el campo está vacío
     if (codigoPostal.length === 0) {
         verError(7, 'El campo código postal no puede estar vacío');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     // Validar que el código postal tenga exactamente 5 dígitos numéricos
     const regex = /^[0-9]{5}$/;
     if (!regex.test(codigoPostal)) {
         verError(7, 'El código postal debe tener exactamente 5 dígitos numéricos');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
-    // Si no hay errores, limpiar el mensaje de error
     if (!hayError) {
         quitarError(7);
     }
@@ -391,7 +417,7 @@ function validarFechaCarnet(event){
 
     // Comprueba si el campo está vacío
     if (!fechaCarnet) {
-        verError(8, 'El campo fecha de nacimiento no puede estar vacío');
+        verError(8, 'El campo fecha de carnet no puede estar vacío');
         hayError = true;
     }
 
@@ -400,7 +426,21 @@ function validarFechaCarnet(event){
     const fechaCarnetDate = new Date(fechaCarnet);
 
     if (fechaCarnetDate > fechaActual) {
-        verError(8, 'La fecha de nacimiento no puede ser futura');
+        verError(8, 'La fecha de carnet no puede ser futura');
+        hayError = true;
+    }
+
+    // Comprueba que la fecha de carnet no sea antes del 1900
+    if (fechaCarnetDate.getFullYear() < 1900) {
+        verError(8, 'La fecha de carnet no puede ser anterior al año 1900');
+        hayError = true;
+    }
+
+    // Comprobar que la fecha de carnet sea 18 años después de la fecha de nacimiento
+    const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+    const edad = fechaCarnetDate.getFullYear() - fechaNacimiento.getFullYear();
+    if (edad < 18) {
+        verError(8, 'Debes tener al menos 18 años para obtener el carnet');
         hayError = true;
     }
 
@@ -416,7 +456,7 @@ function validarFechaMatriculacion(event){
 
     // Comprueba si el campo está vacío
     if (!fechaMatricula) {
-        verError(9, 'El campo fecha de nacimiento no puede estar vacío');
+        verError(9, 'El campo fecha de matriculación no puede estar vacío');
         hayError = true;
     }
 
@@ -425,7 +465,13 @@ function validarFechaMatriculacion(event){
     const fechaMatriculaDate = new Date(fechaMatricula);
 
     if (fechaMatriculaDate > fechaActual) {
-        verError(9, 'La fecha de nacimiento no puede ser futura');
+        verError(9, 'La fecha de matriculación no puede ser futura');
+        hayError = true;
+    }
+
+    // Comprueba que la fecha de matriculación no sea antes del 1900
+    if (fechaMatriculaDate.getFullYear() < 1900) {
+        verError(9, 'La fecha de matriculación no puede ser anterior al año 1900');
         hayError = true;
     }
 
@@ -443,7 +489,7 @@ function validarMatricula(event){
     const regex = /^[0-9]{4}-[A-Z]{3}$/;
     if (!regex.test(matricula)) {
         verError(10, 'La matrícula debe tener el formato "1234 ABC"');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     if (!hayError) {
@@ -453,18 +499,19 @@ function validarMatricula(event){
 
 // Función de validación del fichero
 function validarFichero(event){
-    const fichero = event.target.files[0];
+    let fichero = event.target.files[0];
     let hayError = false;
-
-    // Validar si el fichero es una imagen jpeg o no
-    if (!fichero.type.includes('image/jpeg')) {
-        verError(11, 'El fichero debe ser una imagen JPEG');
-        hayError = true; // Registrar que hay un error
-    }
 
     // Validar si hay un fichero seleccionado
     if (!fichero) {
         quitarError(11);
+        return
+    }
+
+    // Validar si el fichero es una imagen jpeg o no
+    if (!fichero.type.includes('image/jpeg')) {
+        verError(11, 'El fichero debe ser una imagen JPEG');
+        hayError = true;
     }
 
     if (!hayError) {
@@ -480,7 +527,7 @@ function validarTerminos(event){
     // Validar si los términos y condiciones están aceptados
     if (!terminos) {
         verError(12, 'Debes aceptar los términos y condiciones');
-        hayError = true; // Registrar que hay un error
+        hayError = true;
     }
 
     if (!hayError) {
@@ -495,6 +542,9 @@ function validarTerminos(event){
 // Función para cargar las comunidades en el selector de comunidades
 function cargarComunidades() {
     const comunidadSelect = document.getElementById('comunidad');
+
+    comunidadSelect.innerHTML = '<option disabled selected>Seleccione una comunidad</option>';
+
     comunidadesYProvincias.forEach(([comunidad]) => {
         const option = document.createElement('option');
         option.value = comunidad;
@@ -503,26 +553,24 @@ function cargarComunidades() {
     });
 }
 
-// Función para cargar todas las provincias en el selector de provincias
+// Funcion para cargar una opcion por defecto en el selector de provincias
 function cargarProvincias() {
     const provinciaSelect = document.getElementById('provincia');
-    comunidadesYProvincias.forEach(([comunidad, provincias]) => {
-        provincias.forEach(provincia => {
-            const option = document.createElement('option');
-            option.value = provincia;
-            option.textContent = provincia;
-            provinciaSelect.appendChild(option);
-        });
-    });
+
+    provinciaSelect.innerHTML = '<option disabled selected>Seleccione una provincia</option>';
 }
 
 // Función para actualizar las provincias cuando se selecciona una comunidad
 function actualizarProvincias() {
+    inputs[12][1] = true;
+    inputs[13][1] = true;
     const comunidadSeleccionada = document.getElementById('comunidad').value;
     const provinciaSelect = document.getElementById('provincia');
 
     // Limpiar las provincias
     provinciaSelect.innerHTML = '';
+
+    if (!comunidadSeleccionada) return;
 
     // Añadir las provincias correspondientes a la comunidad seleccionada
     const comunidad = comunidadesYProvincias.find(([nombre]) => nombre === comunidadSeleccionada);
@@ -541,6 +589,9 @@ function actualizarProvincias() {
 // Función para cargar las marcas en el selector de marcas
 function cargarMarcas() {
     const marcaSelect = document.getElementById('marca');
+
+    marcaSelect.innerHTML = '<option disabled selected>Seleccione una marca</option>';
+
     marcasYModelos.forEach(([marca]) => {
         const option = document.createElement('option');
         option.value = marca;
@@ -549,26 +600,24 @@ function cargarMarcas() {
     });
 }
 
-// Función para cargar los modelos en el selector de modelos
+// Función para cargar una opción por defecto en el selector de modelos
 function cargarModelo() {
     const modeloSelect = document.getElementById('modelo');
-    marcasYModelos.forEach(([marca, modelos]) => {
-        modelos.forEach(modelo => {
-            const option = document.createElement('option');
-            option.value = modelo;
-            option.textContent = modelo;
-            modeloSelect.appendChild(option);
-        });
-    });
+
+    modeloSelect.innerHTML = '<option disabled selected>Seleccione un modelo</option>';
 }
 
 // Función para actualizar los modelos cuando se selecciona una marca
 function actualizarModelos() {
+    inputs[14][1] = true;
+    inputs[15][1] = true;
     const marcaSeleccionada = document.getElementById('marca').value;
     const modeloSelect = document.getElementById('modelo');
 
     // Limpiar las provincias
     modeloSelect.innerHTML = '';
+
+    if (!marcaSeleccionada) return;
 
     // Añadir las provincias correspondientes a la comunidad seleccionada
     const marca = marcasYModelos.find(([nombre]) => nombre === marcaSeleccionada);
@@ -584,43 +633,223 @@ function actualizarModelos() {
     }
 }
 
-// Función para seleccionar automáticamente la primera opción en ambos selectores
-function seleccionarPrimeraOpcion() {
-    const comunidadSelect = document.getElementById('comunidad');
-    const provinciaSelect = document.getElementById('provincia');
-    const marcaSelect = document.getElementById('marca');
-    const modeloSelect = document.getElementById('modelo');
 
-    // Seleccionar la primera comunidad y sus provincias
-    comunidadSelect.selectedIndex = 0;
-    actualizarProvincias();
+// ========================
 
-    // Seleccionar la primera marca y sus modelos
-    marcaSelect.selectedIndex = 0;
-    actualizarModelos();
+// Parte de los resultados
 
+// ========================
+
+
+// Mostrar los resultados
+
+
+// Event listener para enseñar los resultados
+// Aqui se llama a la funcion mostrarInfoTarjetas que es la que se encarga de mostrar las tarjetas
+// con los precios de los seguros y de cambiar el color de fondo de la tarjetas y si la tarjeta
+// es la seleccionada cambiar el color diferente a las demas
+document.getElementById('enviar').addEventListener('click', function (event) {
+    event.preventDefault();
+    resultados.style.display = 'block';
+    mostrarInfoTarjetas()
+});
+
+// Función para mostrar la información de las tarjetas
+function mostrarInfoTarjetas() {
+    let tipoSeguro = document.getElementById('tipoSeguro').value;
+    switch (tipoSeguro) {
+        case 'terceros':
+            tipoSeguro = 1;
+            break;
+        case 'tercerosAmpliado':
+            tipoSeguro = 2;
+            break;
+        case 'conFranquicia':
+            tipoSeguro = 3;
+            break;
+        case 'todoRiesgo':
+            tipoSeguro = 4;
+            break;
+    }
+
+    // Mostrar el precio del seguro en cada tarjeta y cambiar el color de fondo
+    for (let i = 1; i <= 4; i++) {
+        const precio = document.getElementById(`precio${i}`);
+        const tarjeta = document.getElementById(`tarjeta${i}`);
+
+        switch (i) {
+            case 1:
+                precio.innerHTML = `<p>Precio: ${calcularSeguro('terceros')} €</p>`;
+                tarjeta.style.backgroundColor = '#632A7A';
+                tarjeta.style.color = 'white';
+                tarjeta.style.display = 'block';
+                break;
+            case 2:
+                precio.innerHTML = `<p>Precio: ${calcularSeguro('tercerosAmpliado')} €</p>`;
+                tarjeta.style.backgroundColor = '#632A7A';
+                tarjeta.style.color = 'white';
+                tarjeta.style.display = 'block';
+                break;
+            case 3:
+                precio.innerHTML = '<p>Precio: ' + calcularSeguro('conFranquicia') + ' €</p>';
+                tarjeta.style.backgroundColor = '#632A7A';
+                tarjeta.style.color = 'white';
+                tarjeta.style.display = 'block';
+                break;
+            case 4:
+                precio.innerHTML = '<p>Precio: ' + calcularSeguro('todoRiesgo') + ' €</p>';
+                tarjeta.style.backgroundColor = '#632A7A';
+                tarjeta.style.color = 'white';
+                tarjeta.style.display = 'block';
+                break;
+        }
+    }
+
+    // Cambiar el color de fondo de la tarjeta con el tipo de seguro seleccionado
+    const tarjetaSeleccionada = document.getElementById(`tarjeta${tipoSeguro}`);
+    tarjetaSeleccionada.style.backgroundColor = '#FADA5E';
+    tarjetaSeleccionada.style.color = 'black';
 }
 
-// Cargar las opciones al cargar la página
-window.onload = function() {
-    cargarComunidades();
-    cargarProvincias();
-    cargarMarcas();
-    cargarModelo();
+// Función para calcular el precio del seguro
+function calcularSeguro(tipoSeguro) {
+    let precioBase = 0;
+    let penalizacionVehiculo = 0;
+    let descuentoPermiso = 0;
+    let penalizacionEdad = 0;
+    let penalizacionAntiguedad = 0;
 
-    // Seleccionar automáticamente la primera opción
-    seleccionarPrimeraOpcion();
+    const tipoVehiculo = document.getElementById('tipoVehiculo').value;
+    const fechaCarnetValor = new Date(document.getElementById('fechaCarnet').value);
+    const fechaMatriculacion = new Date(document.getElementById('fechaMatriculacion').value);
+    const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+    const fechaActual = new Date();
 
-    // Event listeners para cambiar dinámicamente
-    document.getElementById('comunidad').addEventListener('change', actualizarProvincias);
-    document.getElementById('marca').addEventListener('change', actualizarModelos);
-    const button = document.getElementById('enviar');
+    // Calcular edad del conductor
+    let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+    if (fechaActual.getMonth() < fechaNacimiento.getMonth() ||
+        (fechaActual.getMonth() === fechaNacimiento.getMonth() && fechaActual.getDate() < fechaNacimiento.getDate())) {
+        edad--;
+    }
 
-    const allTrue = inputs.every(input => Object.values(input)[0] === true);
+    // Calcular años con el permiso de conducir
+    let anosPermiso = fechaActual.getFullYear() - fechaCarnetValor.getFullYear();
+    if (fechaActual.getMonth() < fechaCarnetValor.getMonth() ||
+        (fechaActual.getMonth() === fechaCarnetValor.getMonth() && fechaActual.getDate() < fechaCarnetValor.getDate())) {
+        anosPermiso--;
+    }
 
-    if (allTrue) {
-        button.disabled = false;
-    }else{
-        button.disabled = true;
+    // Calcular años del coche
+    let anosCoche = fechaActual.getFullYear() - fechaMatriculacion.getFullYear();
+    if (fechaActual.getMonth() < fechaMatriculacion.getMonth() ||
+        (fechaActual.getMonth() === fechaMatriculacion.getMonth() && fechaActual.getDate() < fechaMatriculacion.getDate())) {
+        anosCoche--;
+    }
+
+    // Precio base según tipo de seguro
+    switch (tipoSeguro) {
+        case 'terceros':
+            precioBase = 500;
+            break;
+        case 'tercerosAmpliado':
+            precioBase = 650;
+            break;
+        case 'conFranquicia':
+            precioBase = 750;
+            break;
+        case 'todoRiesgo':
+            precioBase = 1000;
+            break;
+    }
+
+    // Penalización por tipo de vehículo
+    switch (tipoVehiculo) {
+        case 'diesel':
+            penalizacionVehiculo = 0.20;
+            break;
+        case 'gasolina':
+            penalizacionVehiculo = 0.15;
+            break;
+        case 'hibrido':
+            penalizacionVehiculo = 0.05;
+            break;
+        case 'electrico':
+            penalizacionVehiculo = 0;
+            break;
+    }
+
+    // Penalización por edad del conductor
+    if (edad < 25) {
+        penalizacionEdad = 0.10;
+    }
+
+    // Descuento por años con el permiso de conducir
+    if (anosPermiso > 5) {
+        descuentoPermiso = 0.10;
+    }
+
+    // Penalización por años de antigüedad del coche
+    if (anosCoche > 10) {
+        penalizacionAntiguedad = (anosCoche - 10) * 0.01;
+    }
+
+    // Calcular precio final
+    let precioFinal = precioBase;
+    precioFinal += precioBase * penalizacionVehiculo;
+    precioFinal += precioBase * penalizacionEdad;
+    precioFinal -= precioBase * descuentoPermiso;
+    precioFinal += precioBase * penalizacionAntiguedad;
+
+    return precioFinal.toFixed(2)
+}
+
+
+// Config de botones y botones de Cancelar y Aceptar
+
+
+// Event listener que cuando haces hover sobre un boton cambia el color de fondo
+document.addEventListener('mouseover', function (event) {
+    if (event.target.classList.contains('boton')) {
+        event.target.style.backgroundColor = '#632A7A';
+    }
+});
+
+// Event listener que cuando dejas de hacer hover sobre un boton vuelva a su color original
+document.addEventListener('mouseout', function (event) {
+    if (event.target.classList.contains('boton')) {
+        event.target.style.backgroundColor = '#280137';
+    }
+});
+
+// Event listener para los botones de cancelar y contratar
+document.addEventListener('click', function (event) {
+
+    // Mirar si el elemento es un botón de cancelar
+    if (event.target.classList.contains('cancelar')) {
+        event.preventDefault();
+        const id = event.target.id; // Get the ID from the data attribute
+        console.log(id);
+        cancelar(id);
+    }
+
+    // Mirar si el elemento es un botón de contratar
+    if (event.target.classList.contains('contratar')) {
+        event.preventDefault();
+        aceptar();
+    }
+});
+
+// Función para mostrar un mensaje de aceptación
+function aceptar() {
+    alert('Gracias por contratar. Atentamente tu asesor de seguros Austin Jenner Beltran Panghulan');
+}
+
+// Función para esconder una tarjeta
+function cancelar(id) {
+    const tarjeta = document.getElementById(`tarjeta${id}`);
+    if (tarjeta) {
+        tarjeta.style.display = 'none';
     }
 }
+
+// ========================

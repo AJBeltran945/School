@@ -7,61 +7,65 @@
 </head>
 <body>
 <form id="formularioSeguro">
+    <div class="form-logo">
+        <h1>Calcula tu Seguro</h1>
+        <img src="img/Logo.jpg" alt="">
+    </div>
     <!-- Personal Information Group -->
     <div class="form-grupo">
         <h2>Información Personal</h2>
         <div class="form-fila">
             <div class="col">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre">
                 <span id="error-input1" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="apellidos" required>
+                <input type="text" id="apellidos" name="apellidos">
                 <span id="error-input2" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
             <div class="col">
                 <label for="dni">DNI</label>
-                <input type="text" id="dni" name="dni" required>
+                <input type="text" id="dni" name="dni">
                 <span id="error-input3" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="correo">Correo Electrónico</label>
-                <input type="email" id="correo" name="correo" required>
+                <input type="email" id="correo" name="correo">
                 <span id="error-input4" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
             <div class="col">
                 <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono">
                 <span id="error-input5" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento">
                 <span id="error-input6" class="error-mensaje"></span>
             </div>
         </div>
         <div class="form-fila">
             <div class="col">
                 <label for="comunidad">Comunidad</label>
-                <select id="comunidad" name="comunidad" required>
+                <select id="comunidad" name="comunidad">
                     <!-- Opciones -->
                 </select>
             </div>
             <div class="col">
                 <label for="provincia">Provincia</label>
-                <select id="provincia" name="provincia" required>
+                <select id="provincia" name="provincia">
                     <!-- Opciones -->
                 </select>
             </div>
             <div class="col">
                 <label for="codigoPostal">Codigo Postal</label>
-                <input type="text" id="codigoPostal" name="codigoPostal" required>
+                <input type="text" id="codigoPostal" name="codigoPostal">
                 <span id="error-input7" class="error-mensaje"></span>
             </div>
         </div>
@@ -73,13 +77,13 @@
         <div class="form-fila">
             <div class="col">
                 <label for="marca">Marca</label>
-                <select id="marca" name="marca" required>
+                <select id="marca" name="marca">
                     <!-- Opciones -->
                 </select>
             </div>
             <div class="col">
                 <label for="modelo">Modelo</label>
-                <select id="modelo" name="modelo" required>
+                <select id="modelo" name="modelo">
                     <!-- Opciones -->
                 </select>
             </div>
@@ -87,7 +91,8 @@
         <div class="form-fila">
             <div class="col">
                 <label for="tipoSeguro">Tipo de Seguro</label>
-                <select id="tipoSeguro" name="tipoSeguro" required>
+                <select id="tipoSeguro" name="tipoSeguro">
+                    <option disabled selected>Seleccione un tipo de seguro</option>
                     <option value="terceros">Terceros</option>
                     <option value="tercerosAmpliado">Terceros Ampliado</option>
                     <option value="conFranquicia">Con Franquicia</option>
@@ -96,7 +101,8 @@
             </div>
             <div class="col">
                 <label for="tipoVehiculo">Tipo de Vehículo</label>
-                <select id="tipoVehiculo" name="tipoVehiculo" required>
+                <select id="tipoVehiculo" name="tipoVehiculo">
+                    <option disabled selected>Seleccione un tipo de vehículo</option>
                     <option value="diesel">Diesel</option>
                     <option value="gasolina">Gasolina</option>
                     <option value="hibrido">Híbrido</option>
@@ -107,17 +113,17 @@
         <div class="form-fila">
             <div class="col">
                 <label for="fechaCarnet">Fecha de expedición del Carnet</label>
-                <input type="date" id="fechaCarnet" name="fechaCarnet" required>
+                <input type="date" id="fechaCarnet" name="fechaCarnet">
                 <span id="error-input8" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="fechaMatriculacion">Fecha de Matriculación</label>
-                <input type="date" id="fechaMatriculacion" name="fechaMatriculacion" required>
+                <input type="date" id="fechaMatriculacion" name="fechaMatriculacion">
                 <span id="error-input9" class="error-mensaje"></span>
             </div>
             <div class="col">
                 <label for="matricula">Matrícula</label>
-                <input type="text" id="matricula" name="matricula" required>
+                <input type="text" id="matricula" name="matricula">
                 <span id="error-input10" class="error-mensaje"></span>
             </div>
         </div>
@@ -139,7 +145,7 @@
         <div class="form-fila">
             <div class="col col-checkbox">
                 <div class="checkbox-wrapper">
-                    <input type="checkbox" id="terminos" name="terminos" required>
+                    <input type="checkbox" id="terminos" name="terminos">
                     <label for="terminos">Acepto los términos y condiciones</label>
                 </div>
                 <span id="error-input12" class="error-mensaje">Debes aceptar los términos y condiciones</span>
@@ -147,12 +153,52 @@
         </div>
 
         <div class="form-fila">
-            <button id="enviar" type="submit" onclick="calcularSeguro()">Calcular Seguro</button>
+            <button class="boton" id="enviar">Calcular Seguro</button>
         </div>
     </div>
 </form>
 
-<div id="resultados" class="hidden"></div>
+<div id="resultados">
+    <div class = "resultado-grupo">
+        <h2>Resultados</h2>
+        <div class="result-fila">
+            <div class="tarjeta" id="tarjeta1">
+                <h3>Seguro a Terceros</h3>
+                <div class="precio">
+                    <span class="total" id="precio1"></span>
+                </div>
+                <button  class="contratar" >Contratar</button>
+                <button class="cancelar" id="1">Descartar</button>
+            </div>
+            <div class="tarjeta" id="tarjeta2">
+                <h3>Seguro a Terceros Ampliado</h3>
+                <div class="precio">
+                    <span class="total" id="precio2"></span>
+                </div>
+                <button class="contratar" >Contratar</button>
+                <button class="cancelar" id="2">Descartar</button>
+            </div>
+        </div>
+        <div class="result-fila" >
+            <div class="tarjeta" id="tarjeta3">
+                <h3>Seguro con Franquicia</h3>
+                <div class="precio">
+                    <span class="total" id="precio3"></span>
+                </div>
+                <button class="contratar" >Contratar</button>
+                <button class="cancelar" id="3">Descartar</button>
+            </div>
+            <div class="tarjeta"id="tarjeta4">
+                <h3>Seguro a Todo Riesgo</h3>
+                <div class="precio">
+                    <span class="total" id="precio4"></span>
+                </div>
+                <button class="contratar" >Contratar</button>
+                <button class="cancelar" id="4">Descartar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <script src="code.js"></script>
