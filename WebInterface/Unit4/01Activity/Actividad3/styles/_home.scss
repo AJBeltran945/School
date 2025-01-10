@@ -1,0 +1,56 @@
+#home {
+  background-image: url("../img/BG.gif");
+  background-size: cover;
+  background-position: center;
+  height: 55rem;
+
+  color: $light-bg;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .Logo img {
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: black 0px 0px 10px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-shadow: black 0px 0px 10px;
+  }
+
+  .btn {
+    background-color: $secondary-color;
+    color: $light-bg;
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .Logo img {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .Logo img {
+      height: 200px;
+    }
+  }
+  @media (max-width: 400px) {
+    .Logo img {
+      height: 100px;
+    }
+  }
+}

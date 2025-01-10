@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('db.php');
+include('../actividad18/connection.php');
 
 // Verificamos que el usuario esté logueado
 if (!isset($_SESSION['username'])) {

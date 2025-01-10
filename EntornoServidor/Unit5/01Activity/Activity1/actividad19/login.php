@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = getUserByName($pdo, $username);
 
     // Verificamos si el usuario existe y la contraseña es correcta
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && password_verify($password, $user['contraseña'])) {
         $_SESSION['username'] = $user['nombre_usuario']; // Guardamos el nombre de usuario en la sesión
         header("Location: intranet.php"); // Redirigimos a la intranet
         exit();

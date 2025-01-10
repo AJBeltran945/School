@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: black;
+}
+.navbar .navbar-brand img {
+  height: 75px;
+  border-radius: 20px;
+  margin-right: -300px;
+}
+.navbar .navbar-nav .nav-link {
+  font-weight: bold;
+  color: white;
+}
+.navbar .navbar-nav .nav-link:hover {
+  color: #FADA5E;
+}
+.navbar .navbar-toggler-icon {
+  background-color: white;
+}
+
+/* Add a keyframe animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Target the nav items */
+.navbar-nav .nav-item {
+  opacity: 0; /* Start with hidden */
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+/* Delay the animation for each nav item */
+.navbar-nav .nav-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.navbar-nav .nav-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.navbar-nav .nav-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.navbar-nav .nav-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+#home {
+  background-image: url("../img/BG.gif");
+  background-size: cover;
+  background-position: center;
+  height: 55rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .Logo img {
+  height: 400px;
+  border-radius: 20px;
+}
+#home h1 {
+  font-size: 3rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-shadow: black 0px 0px 10px;
+}
+#home p {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-shadow: black 0px 0px 10px;
+}
+#home .btn {
+  background-color: #280138;
+  color: white;
+}
+#home .btn:hover {
+  background-color: #FADA5E;
+}
+@media (max-width: 992px) {
+  #home .Logo img {
+    height: 300px;
+  }
+}
+@media (max-width: 767px) {
+  #home .Logo img {
+    height: 200px;
+  }
+}
+@media (max-width: 400px) {
+  #home .Logo img {
+    height: 100px;
+  }
+}
+
+#projects {
+  background-color: #141414;
+  padding: 60px 0;
+}
+#projects h2 {
+  color: #FADA5E;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+#projects .card {
+  border: none;
+}
+#projects .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+#projects .card .card-body {
+  background-color: black;
+  color: white;
+}
+#projects .card .card-body .card-title {
+  color: #FADA5E;
+}
+#projects .card .card-body .btn {
+  font-weight: bold;
+  background-color: #FADA5E;
+  color: black;
+}
+#projects .card .card-body .btn:hover {
+  background-color: #280138;
+  color: white;
+}
+
+#skills {
+  background-color: #141414;
+  padding: 60px 0;
+  color: #FADA5E;
+}
+#skills h2 {
+  color: #FADA5E;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+#skills .progress {
+  height: 30px;
+  border-radius: 40px;
+}
+#skills .progress-bar {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #280138;
+  background-color: #FADA5E;
+  height: 30px;
+}
+#skills .skill-icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+#skills .row .col-md-6 h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Keyframes for progress bar animation */
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* Customize each progress bar with specific widths and animations */
+.html-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 90%;
+}
+
+.css-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 85%;
+}
+
+.js-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 75%;
+}
+
+.java-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 80%;
+}
+
+.bootstrap-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 85%;
+}
+
+.node-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 70%;
+}
+
+.php-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 65%;
+}
+
+.mysql-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 75%;
+}
+
+#contact {
+  background-color: #141414;
+  padding: 60px 0;
+}
+#contact h2 {
+  color: #FADA5E;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+#contact form .form-control {
+  background-color: white;
+  color: black;
+  border: none;
+}
+#contact form .form-control:focus {
+  background-color: white;
+  color: black;
+}
+#contact form .form-label {
+  color: #FADA5E;
+  font-weight: bold;
+}
+#contact form .btn {
+  background-color: #FADA5E;
+  color: white;
+}
+#contact form .btn:hover {
+  background-color: #280138;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 30px 0;
+}
+footer .social-media .bi {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+footer .social-media .bi:hover {
+  color: #FADA5E;
+}
+footer .quick-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+footer .quick-links ul li {
+  margin: 5px 0;
+}
+footer .quick-links ul li a {
+  color: white;
+  text-decoration: none;
+}
+footer .quick-links ul li a:hover {
+  color: #FADA5E;
+}
+
+/*# sourceMappingURL=style.css.map */

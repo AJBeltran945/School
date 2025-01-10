@@ -1,0 +1,35 @@
+#contact {
+  background-color: $gray;
+  padding: 60px 0;
+
+  h2 {
+    color: $primary-color;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  form {
+    .form-control {
+      background-color: $light-bg;
+      color: $dark-bg;
+      border: none;
+      &:focus {
+        background-color: $light-bg;
+        color: $dark-bg;
+      }
+    }
+
+    .form-label {
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: $primary-color;
+      color: $light-bg;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

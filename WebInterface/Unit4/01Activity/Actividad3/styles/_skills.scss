@@ -1,0 +1,92 @@
+#skills {
+  background-color: $gray;
+  padding: 60px 0;
+  color: $primary-color;
+
+  h2 {
+    color: $primary-color;
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  .progress{
+    height: 30px;
+    border-radius: 40px;
+  }
+
+  .progress-bar {
+    font-size: 1rem;
+    font-weight: bold;
+    color: $secondary-color;
+    background-color: $primary-color;
+    height: 30px;
+  }
+
+  .skill-icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  .row {
+    .col-md-6 {
+      h5 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/* Keyframes for progress bar animation */
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Customize each progress bar with specific widths and animations */
+.html-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 90%;
+}
+
+.css-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 85%;
+}
+
+.js-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 75%;
+}
+
+.java-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 80%;
+}
+
+.bootstrap-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 85%;
+}
+
+.node-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 70%;
+}
+
+.php-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 65%;
+}
+
+.mysql-bar {
+  animation: fillProgress 2s ease-in-out forwards;
+  width: 75%;
+}
