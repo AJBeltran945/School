@@ -6,8 +6,21 @@
 </head>
 <body>
   <h1>Formulario Dinamico</h1>
+  <table>
+      <tr>
+          <td><button onclick="createInput('text')">Crear Input Texto</button></td>
+          <td><button onclick="createInput('password')">Crear Input Password</button></td>
+          <td><button onclick="createTextarea()">Crear Textarea</button></td>
+          <td><button onclick="createLabel()">Crear Label</button></td>
+          <td><button onclick="createImage()">Crear Imagen</button></td>
+          <td><button onclick="createCheckbox()">Crear Checkbox</button></td>
+          <td><button onclick="createRadio()">Crear Radio</button></td>
+          <td><button onclick="createButton()">Crear Botón</button></td>
+      </tr>
+  </table>
 
-  <button 
+  <div id="form-container">
+  </div>
 
   <script src="code.js"></script>
 </body>
