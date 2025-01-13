@@ -14,7 +14,7 @@ $username = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <title>Intranet</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 <div class="intranet-container">
@@ -22,7 +22,7 @@ $username = $_SESSION['username'];
     <div class="links">
         <a href="index.php">Ir al inicio</a> |
         <a href="logout.php">Cerrar sesión</a> |
-        <a href="disable.php">Darse de baja</a>
+        <a href="../actividad20/disable.php">Darse de baja</a>
     </div>
 </div>
 </body>

@@ -13,7 +13,7 @@ if (isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 <div class="login-container">

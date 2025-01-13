@@ -18,7 +18,7 @@ function conectarBBDD(
 }
 
 function getUserByName($pdo, $username) {
-    $sql = "SELECT * FROM Usuarios WHERE nombre_usuario = :username LIMIT 1";
+    $sql = "SELECT * FROM Usuarios WHERE user_name = :username LIMIT 1";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
     $stmt->execute();

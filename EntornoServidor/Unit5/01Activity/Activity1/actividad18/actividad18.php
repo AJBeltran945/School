@@ -2,7 +2,7 @@
 require_once "connection.php";
 
 $pdo = conectarBBDD();
-$username = "juan123";
+$username = "aj";
 
 $user = getUserByName($pdo, $username);
 
