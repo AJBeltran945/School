@@ -1,0 +1,44 @@
+#jugador2{
+    display: none;
+}
+#Tablero{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    background: linear-gradient(135deg, #0d1117, #21262d);
+    color: #c9d1d9;
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    max-width: 800px;
+}
+h1, h2 {
+    text-align: center;
+    color: #58a6ff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+.card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+}
+.btn-custom {
+    background-color: #238636;
+    border: none;
+    color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-custom:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(35, 134, 54, 0.8);
+}
+.checkbox-group label {
+    margin-right: 15px;
+    cursor: pointer;
+}
+.checkbox-group input {
+    margin-right: 5px;
+}
