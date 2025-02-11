@@ -1,0 +1,33 @@
+{
+  "name": "Austin Jenner Beltran Panghulan",
+  "title": "Desarrollador Web",
+  "email": "ajbeltran@example.com",
+  "phone": "123-456-7890",
+  "address": {
+    "street": "Calle Joan Bauza, 17",
+    "city": "Palma",
+    "state": "Islas Baleares",
+    "country": "España"
+  },
+  "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Angular",
+    "Node.js"
+  ],
+  "experience": [
+    {
+      "company": "Compañía Ejemplo",
+      "role": "Desarrollador Frontend",
+      "start_date": "2020-01-01",
+      "end_date": "2023-01-01"
+    },
+    {
+      "company": "Otra Compañía",
+      "role": "Desarrollador Backend",
+      "start_date": "2018-01-01",
+      "end_date": "2019-12-31"
+    }
+  ]
+}

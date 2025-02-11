@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Dex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .column {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 30%;
+        }
+    </style>
 </head>
 <body>
+<h1>Explora el Universo de Star Wars</h1>
+<input type="number" id="inputNumber" placeholder="Introduce un número">
+<button id="buscar" >Buscar</button>
 
+<div class="container">
+    <div class="column" id="person"></div>
+    <div class="column" id="planet"></div>
+    <div class="column" id="starship"></div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
