@@ -1,0 +1,11 @@
+[
+  { "nombre": "Café Espresso", "descripcion": "Fuerte y concentrado.", "precio": "$3.00" },
+  { "nombre": "Capuchino", "descripcion": "Espumoso y delicioso.", "precio": "$4.50" },
+  { "nombre": "Latte", "descripcion": "Suave y cremoso.", "precio": "$4.00" },
+  { "nombre": "Mocaccino", "descripcion": "Chocolate y café juntos.", "precio": "$5.00" },
+  { "nombre": "Americano", "descripcion": "Un clásico ligero.", "precio": "$2.50" },
+  { "nombre": "Macchiato", "descripcion": "Un toque de leche espumosa.", "precio": "$3.50" },
+  { "nombre": "Affogato", "descripcion": "Helado con espresso caliente.", "precio": "$5.50" },
+  { "nombre": "Frappuccino", "descripcion": "Frío y dulce.", "precio": "$6.00" },
+  { "nombre": "Café Irlandés", "descripcion": "Con un toque de whisky.", "precio": "$7.00" }
+]

@@ -25,39 +25,13 @@ class ProductoController extends Controller
 
     public function show($nombre)
     {
-        // Obtener productos iniciales
-        $productosIniciales = $this->productos;
-
-        // Obtener productos almacenados en sesión
-        $productosSesion = session('productos', []);
-
-        // Fusionar ambas listas
-        $productos = array_merge($productosIniciales, $productosSesion);
-
-        // Buscar el producto por nombre
-        $producto = collect($productos)->firstWhere('nombre', $nombre);
+        $producto = collect($this->productos)->firstWhere('nombre', $nombre);
 
         if (!$producto) {
-            return redirect('/productos'); // Si no existe, redirigir a la lista
+            return redirect('/productos');
         }
 
         return view('productos.producto', ['producto' => $producto]);
     }
-
-
-    public function store(Request $request)
-    {
-        $nuevoProducto = [
-            'nombre' => $request->input('nombre'),
-            'precio' => $request->input('precio'),
-            'descripcion' => $request->input('descripcion'),
-        ];
-
-        // Agregar el nuevo producto a la lista
-        session()->push('productos', $nuevoProducto);
-
-        return redirect('/productos');
-    }
-
 }
 

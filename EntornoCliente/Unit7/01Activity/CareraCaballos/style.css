@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pista{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1203px;
+    height: 600px;
+    border: solid black;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.caballo img{
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.race-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.race-button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.race-button:active {
+    transform: scale(0.95);
+}
+
+.race-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}

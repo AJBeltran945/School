@@ -1,21 +1,26 @@
+// un evento al boton de inicio para llamar a la función asincrona
 document.getElementById("Show").addEventListener("click", ()=>{
     getData()
 })
 
+// una función asincrona que obtiene los datos del archivo curriculum.json
+// y obtiene una imagen aleatoria de la api de randomuser
 async function getData(){
     try{
+        //obtiene los datos del archivo curriculum.json
         const infoCuriculum = await fetch('./curriculum.json').then(res => res.json())
-        
+
+        //obtiene la imagen de la api de randomuser
         fetch('https://randomuser.me/api/')
             .then(res => res.json())
             .then(data => {
                 const pictureUrl = data.results[0].picture.large;
+                // llama a la función displayUserImage con la imagen del usuario
                 displayUserImage(pictureUrl);
             })
-        // const imagenUrl = imagenData.result[0].picture.large
 
+        // llama a la función displayCurriculum con los datos del curriculum
         displayCurriculum(infoCuriculum)
-        // displayUserImage(imagenUrl)
 
     }catch (e){
         console.log("Error: ", e)
@@ -23,7 +28,7 @@ async function getData(){
 
 }
 
-
+// crea y añade el contenedor, con datos del curriculum
 function displayCurriculum(data) {
     const curriculumSection = document.getElementById('curriculum');
 
@@ -48,7 +53,7 @@ function displayCurriculum(data) {
   `;
 }
 
-
+// crea y añade el contenedor, con el imagen del usuario
 function displayUserImage(pictureUrl) {
     const imageSection = document.getElementById('user-image');
     imageSection.innerHTML = `<img src="${pictureUrl}" alt="Imagen de perfil" />`;

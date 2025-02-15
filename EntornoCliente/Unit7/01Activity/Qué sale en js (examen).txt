@@ -1,0 +1,10 @@
+callbacks --> aprender a chapa
+
+saber transformar callbacks a promesas
+
+saber hacer promesas
+
+diferenciar promise.all de promise
+
+async await
+
