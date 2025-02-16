@@ -24,7 +24,7 @@ function moveHorse(horse) {
         let position = 5;
 
         function animate() {
-            const add = Math.random() * 5; // Make movement smoother
+            const add = Math.random() * 2.5;
             position += add;
             horse.style.transform = `translateX(${position}px)`;
 
