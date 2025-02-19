@@ -1,19 +1,20 @@
-function girarRuleta(){
-    return  new Promise((resolve, reject) =>{
-
-        const numero = Math.floor(Math.random() * 10 + 1)
-
-        if (numero > 7){
-            isGanador = true
-            resolve( "¡Has ganado un premio! tu numero era: " + numero)
-        }else {
-            reject("Sigue intentando, tu numero era: " + numero)
-        }
-
+function descargarArchivo(nombre, timepo){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve("Archivo " + nombre + " descargado")
+        }, timepo)
     })
 }
 
-document.getElementById("spinRulleta").addEventListener("click", () =>{
-    girarRuleta().then(value => {alert(value)})
-                 .catch(error => alert(error))
-})
+const descarga1 = descargarArchivo("Video.mp4", 3000);
+const descarga2 = descargarArchivo("Imagen.png", 2000);
+const descarga3 = descargarArchivo("Documento.pdf", 4000);
+
+Promise.all([descarga1, descarga2, descarga3])
+    .then((mensajes) => {
+        console.log("Todas las descargas han finalizado:");
+        mensajes.forEach((mensaje) => console.log(mensaje));
+    })
+    .catch((error) => {
+        console.error("Hubo un error en la descarga:", error);
+    });
