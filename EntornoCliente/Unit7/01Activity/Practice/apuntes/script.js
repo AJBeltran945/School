@@ -145,7 +145,6 @@ const walkTheDogRe =
         }, 2000)
     })
 
-
 const cleanTheKitchenRe =
      new Promise((resolve, reject) => {
 

@@ -14,6 +14,7 @@ function girarRuleta(){
 }
 
 document.getElementById("spinRulleta").addEventListener("click", () =>{
-    girarRuleta().then(value => {alert(value)})
-                 .catch(error => alert(error))
+    girarRuleta()
+    .then(value => {alert(value)})
+    .catch(error => alert(error))
 })

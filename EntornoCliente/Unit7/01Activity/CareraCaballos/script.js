@@ -1,5 +1,3 @@
-
-
 async function startRace() {
     document.getElementById('inicio').disabled = true
     const imagenUrl = 'https://t4.ftcdn.net/jpg/02/58/71/53/360_F_258715362_lpzHSlpsQBwFdTJCJve5GQ1zt8YDr9YS.jpg';
