@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Servicio de Apache y PHP
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: apache_php
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  # Servicio de MySQL
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+      MYSQL_DATABASE: austin_db
+      MYSQL_USER: austin
+      MYSQL_PASSWORD: "123456"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./datadir:/var/lib/mysql
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      environment:
+        PMA_HOST: austin_db
+        PMA_PASSWORD: qwerty  
+      ports:
+        - "8081:80"
+      depends_on:
+        - db
