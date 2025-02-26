@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .padre{
+            border: black solid 1px;
+            padding: 10px;
+            width: 100px;
+        }
+        .hijos{
+            border: black solid 1px;
+            padding: 10px;
+            width: 50px;
+        }
+        .selecionado{
+            background: blue;
+        }
+    </style>
 </head>
   <body>
+    <button id="startFor" >for</button>
+    <br><br>
+
+    <button id="atributos">atributos</button>
+    <br><br>
+
+    <div hero="batman" ></div>
+    <div hero="superman" ></div>
+    <div hero="aquaman" ></div>
+    <div ></div>
+
+    <div class="padre">
+        padre
+        <div class="hijos">hijo1</div>
+        <div class="hijos">hijo2</div>
+    </div>
 
   </body>
-
+  <script src="script.js"></script>
 </html>
