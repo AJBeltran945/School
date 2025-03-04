@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Pizzeria</title>
 </head>
-<body>
+    <body>
 
-</body>
+        <h1>Formulario de Pedido - Pizzeria</h1>
+
+        <form>
+            <label for="nombre">Nombre del cliente:</label> <br>
+            <input type="text" id="nombre" name="nombre">
+            <span id="error-input1" class="error-mensaje"></span>
+
+            <br> <br>
+
+            <label for="telefono">Telefono:</label> <br>
+            <input type="text" id="telefono" name="telefono">
+            <span id="error-input2" class="error-mensaje"></span>
+
+            <br> <br>
+
+            <label for="correo">Correo electronico:</label> <br>
+            <input type="email" id="correo" name="correo">
+            <span id="error-input3" class="error-mensaje"></span>
+
+            <br> <br>
+
+            <hr>
+
+            <h2>Haz tu pizza</h2>
+
+            <label for="tamano">Tamaño:</label> <br>
+            <select id="tamano" name="tamano">
+                <option disabled selected>Selecciona un tamaño</option>
+                <option value="peque">Pequeña - 8€</option>
+                <option value="mediana">Mediana - 10€</option>
+                <option value="grande">Grande - 12€</option>
+            </select>
+            <span id="error-input4" class="error-mensaje"></span>
+
+            <br> <br>
+
+            <label>Ingrindientes adicionales (1€ c/u)</label><br>
+            <label for="peperoni" >Peperoni</label>
+            <input type="checkbox" id="peperoni" name="Peperoni" value="Peperoni"><br>
+            <label for="champi" >Champiñones</label>
+            <input type="checkbox" id="champi" name="Champiñones" value="Champiñones"><br>
+            <label for="pimiento" >Pimiento</label>
+            <input type="checkbox" id="pimiento" name="Pimiento" value="Pimiento"><br>
+            <label for="aceituna" >Aceitunas</label>
+            <input type="checkbox" id="aceituna" name="Aceitunas" value="Aceitunas">
+
+
+            <br> <br>
+
+            <label for="cantidad">Cantidad:</label> <br>
+            <input type="number" id="cantidad" name="cantidad">
+            <span id="error-input5" class="error-mensaje"></span>
+
+            <br> <br>
+
+            <button type="button" id="agregar">Añadir Pedido</button>
+
+            <br> <br>
+
+            <h2>Resumen del pedido</h2>
+
+            <div id="pedidos">
+
+            </div>
+
+            <br> <br>
+
+            <div id="preciofinal"></div>
+
+            <br> <br>
+
+            <button id="enviar">Realizar Pedido</button>
+        </form>
+    </body>
+    <script src="script.js"></script>
 </html>

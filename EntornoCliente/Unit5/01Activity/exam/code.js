@@ -15,11 +15,13 @@ const email = document.getElementById('correo');
 const tamano = document.getElementById('tamano');
 const cantidad = document.getElementById('cantidad');
 
-const pedidos =[]
-
+let pedidos = 0
 
 button.addEventListener('click', function(){
     crearTarjeta();
+    if (pedidos === 0){
+        button2.disabled = false;
+    }
 });
 
 button2.addEventListener('click', function(){
@@ -230,13 +232,15 @@ function calcularPrecio(){
         nombretamano = 'Mediana - 10€ x' + cantidad
         precio = 10;
     }else if(tamano === 'grande'){
-        nombretamano = 'Grande - 12€ x' + cantidad
+        nombretamano = 'Grande - 12€ x ' + cantidad
         precio = 12;
     }
 
     precio = (precio + precioIngrediente) * cantidad;
 
-    return nombretamano + '('+precio+'.00€'+')';
+    pedidos = precio
+
+    return nombretamano + ' ('+precio+'.00€'+')';
 }
 
 // funcion para crear la tarjeta
