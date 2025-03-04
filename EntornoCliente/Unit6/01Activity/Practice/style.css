@@ -1,0 +1,19 @@
+.padre{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: black solid 1px;
+    padding: 10px;
+    width: 100px;
+    background: blue;
+    color: white;
+}
+.hijos{
+    border: black solid 1px;
+    padding: 10px;
+    width: 50px;
+    background: white;
+    color: black;
+}

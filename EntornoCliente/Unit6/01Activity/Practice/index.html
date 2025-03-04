@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .padre{
-            border: black solid 1px;
-            padding: 10px;
-            width: 100px;
-        }
-        .hijos{
-            border: black solid 1px;
-            padding: 10px;
-            width: 50px;
-        }
-        .selecionado{
-            background: blue;
-        }
-    </style>
-</head>
-  <body>
-    <button id="startFor" >for</button>
-    <br><br>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-    <button id="atributos">atributos</button>
-    <br><br>
+    <body>
+        <button id="startFor" >for</button>
+        <br><br>
 
-    <div hero="batman" ></div>
-    <div hero="superman" ></div>
-    <div hero="aquaman" ></div>
-    <div ></div>
+        <button id="atributos">atributos</button>
+        <ul hero="batman" >batman</ul>
+        <ul hero="superman" >superman</ul>
+        <ul hero="aquaman" >aquaman</ul>
+        <ul ></ul>
 
-    <div class="padre">
-        padre
-        <div class="hijos">hijo1</div>
-        <div class="hijos">hijo2</div>
-    </div>
+        <button id="numeroNodes">Decir numero de nodes</button>
+        <br><br>
 
-  </body>
-  <script src="script.js"></script>
+        <div>
+            <div class="padre">
+                Padre
+                <br><br>
+                <div class="hijos">hijo1</div>
+                <div class="hijos">hijo2</div>
+                <div class="hijos">hijo3</div>
+                <div class="hijos">hijo4</div>
+            </div>
+            <br><br>
+            <button id="irPadre">ir al padre</button>
+            <button id="irHijos">ir a los hijos</button>
+            <button id="prevHijo">prev hijo</button>
+            <button id="nextHijo">next hijo</button>
+            <button id="firstHijo">first hijo</button>
+            <button id="lastHijo">last hijo</button>
+        </div>
+
+    </body>
+    <script src="script.js">
+
+    </script>
 </html>
