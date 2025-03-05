@@ -3,6 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizzeria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        label {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: 99%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .error-mensaje {
+            color: red;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        button:disabled:hover {
+            background-color: #cccccc;
+        }
+
+        .tarjeta {
+            border: black solid 1px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        .tarjeta h3 {
+            margin: 0;
+            padding-bottom: 5px;
+        }
+
+        .tarjeta p {
+            margin: 5px 0;
+        }
+
+        #pedidos {
+            margin-top: 20px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
     <body>
 
@@ -65,17 +172,13 @@
 
             <br> <br>
 
+            <hr>
+
             <h2>Resumen del pedido</h2>
 
-            <div id="pedidos">
-
-            </div>
-
-            <br> <br>
+            <div id="pedidos"></div>
 
             <div id="preciofinal"></div>
-
-            <br> <br>
 
             <button id="enviar">Realizar Pedido</button>
         </form>

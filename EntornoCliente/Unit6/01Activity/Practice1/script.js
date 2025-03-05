@@ -45,8 +45,8 @@ const res1 = document.getElementById('age-table')
 const res2 = document.querySelectorAll('label')
 const res3 = res1.querySelector('td')
 const res4 = document.querySelector('form[name = "search"]')
-const res5 = document.querySelector('input')
 const inputs = document.querySelectorAll('input')
+const res5 = inputs[0]
 const res6 = inputs[inputs.length-1]
 
 

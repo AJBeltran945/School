@@ -13,8 +13,6 @@ function inicializar() {
 const buttonAgregar = document.getElementById('agregar');
 const buttonEnviar = document.getElementById('enviar');
 
-const resumenDePedido = [[]];
-
 const nombre = document.getElementById('nombre');
 const telefono = document.getElementById('telefono');
 const email = document.getElementById('correo');
@@ -29,11 +27,26 @@ const inputs = [
     [cantidad, false]
 ];
 
+const resumenDePedido = [];
+
 nombre.addEventListener('input', validarNombre);
 telefono.addEventListener('input', validarTelefono);
 email.addEventListener('input', validarEmail);
 tamano.addEventListener('input', validarTamano);
 cantidad.addEventListener('input', validarCantidad);
+buttonAgregar.addEventListener('click', () =>{
+    crearTarjeta()
+    comprobarCampos()
+})
+buttonEnviar.addEventListener('click', () => {
+    event.preventDefault();
+    alert(`
+    Nombre del cliente: ${nombre.value}
+    Resumen de pedidos:
+    ${getResumen()}
+    Precio total: ${getPreccioFinal()}€
+    `);
+});
 
 function validarNombre(event) {
     const valor = event.target.value.trim();
@@ -116,7 +129,7 @@ function validarCantidad(event) {
 function comprobarCampos() {
     let allValid = inputs.every(input => input[1]);
     buttonAgregar.disabled = !allValid;
-    buttonEnviar.disabled = resumenDePedido.length != 0;
+    buttonEnviar.disabled = resumenDePedido.length === 0;
 }
 
 function verError(id, mensaje) {
@@ -142,8 +155,132 @@ function quitarError(id) {
 
 function crearTarjeta(){
     const pedidos = document.getElementById('pedidos')
+    const areaPrecioFinal = document.getElementById('preciofinal')
     const pedido = document.createElement('div')
+    const pedidosEnResumen =[]
 
-    pedido.innerHTML = '' +
-        '<p>'
+    const tamano = getTamano()
+    let precioTamano
+    switch (tamano) {
+        case 'Pequeño':
+            precioTamano = 8
+            break;
+
+        case 'Mediano':
+            precioTamano = 10
+            break;
+
+        case 'Grande':
+            precioTamano = 12
+            break;
+    }
+    const cantidad = getCantidad()
+    let ingredientes = getIngrendientes()
+    const precio = getPreio(precioTamano, ingredientes.length, cantidad)
+
+    pedidosEnResumen.push(tamano, cantidad, ingredientes, precio)
+    resumenDePedido.push(pedidosEnResumen)
+    const precioFinal = getPreccioFinal()
+
+    ingredientes = ingredientes.join(", ")
+    if (ingredientes === ''){
+        ingredientes = 'no hay ingredientes'
+    }
+
+    pedido.classList.add('tarjeta')
+    pedido.innerHTML = `
+        <p>${tamano} - ${precioTamano}€ x ${cantidad} (${precio}.00€)</p>
+        <p>Ingredientes: ${ingredientes}</p>
+        <button class="eliminar">Eliminar Pedido</button>
+    `;
+    // Añadir eventListener para eliminar el pedido
+    const botonEliminar = pedido.querySelector('.eliminar');
+    botonEliminar.addEventListener('click', () => eliminarPedido(pedido, pedidosEnResumen));
+
+    areaPrecioFinal.innerHTML = `
+        <h3>Preccio Final: ${precioFinal}€ </h3>
+    `
+
+    pedidos.appendChild(pedido)
+    console.log(resumenDePedido)
+
+}
+
+function getTamano() {
+    let tamano = document.getElementById('tamano').value
+    switch (tamano) {
+        case 'peque':
+            tamano = 'Pequeño'
+            break;
+
+        case 'mediana':
+            tamano = 'Mediano'
+            break;
+
+        case 'grande':
+            tamano = 'Grande'
+            break;
+    }
+
+    return tamano
+}
+
+function getCantidad(){
+    return document.getElementById('cantidad').value
+}
+
+function getIngrendientes() {
+    const ingredientes = []
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(ingrediente => {
+        ingredientes.push(ingrediente.value)
+    })
+    return ingredientes
+}
+
+function getPreio(tamano, ingredientes, cantidad){
+    return (tamano + ingredientes) * cantidad
+}
+
+function getPreccioFinal() {
+    let precioFinal = 0;
+    for (let i = 0; i < resumenDePedido.length; i++) {
+        if (typeof resumenDePedido[i][3] === 'number') {
+            precioFinal += resumenDePedido[i][3];
+        }
+    }
+    return precioFinal;
+}
+
+function getResumen() {
+    let resumen = "";
+    for (let i = 0; i < resumenDePedido.length; i++) {
+        let [tamano, cantidad, ingredientes, precio] = resumenDePedido[i];
+        resumen += `
+        Pizza${i+1} \n
+        Tamaño: ${tamano}, Cantidad: ${cantidad}, \n
+        Ingredientes: ${ingredientes.join(", ")}, Precio: $${precio}\n
+        `;
+    }
+    return resumen;
+}
+
+function eliminarPedido(pedidoElemento, pedidoResumen) {
+    // Eliminar el pedido del resumenDePedido
+    const index = resumenDePedido.indexOf(pedidoResumen);
+    if (index !== -1) {
+        resumenDePedido.splice(index, 1);
+    }
+
+    // Eliminar el pedido del DOM
+    pedidoElemento.remove();
+
+    // Actualizar la visualización del precio final
+    const areaPrecioFinal = document.getElementById('preciofinal');
+    areaPrecioFinal.innerHTML = `
+        <h3>Precio Final: ${getPreccioFinal()}€ </h3>
+    `;
+
+    comprobarCampos()
+
+    console.log(resumenDePedido);
 }
